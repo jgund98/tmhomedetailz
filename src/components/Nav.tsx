@@ -98,11 +98,16 @@ export default function Nav() {
               </span>
             </span>
           </a>
+          {/* CTA cut on the wand angle — same diagonal as the hero jet */}
           <Link
             href="/contact"
-            className="btn-jet label rounded-full bg-hydro px-7 py-3.5 text-abyss transition-colors"
+            className="group relative -skew-x-[10deg] overflow-hidden rounded-md bg-hydro px-7 py-3.5 shadow-[0_6px_20px_-6px_rgba(2,171,223,0.7)] transition-all duration-300 hover:shadow-[0_8px_26px_-6px_rgba(2,171,223,0.9)]"
           >
-            Free Quote
+            <span
+              aria-hidden="true"
+              className="absolute inset-y-0 -left-1/3 w-1/3 -translate-x-[200%] bg-foam/40 blur-sm transition-transform duration-700 group-hover:translate-x-[500%]"
+            />
+            <span className="label block skew-x-[10deg] text-abyss">Free Quote</span>
           </Link>
         </div>
 

@@ -10,12 +10,14 @@ export default function BeforeAfter({
   altBefore = "Before cleaning",
   altAfter = "After cleaning",
   aspect = "aspect-[4/5] sm:aspect-[3/2]",
+  position = "object-center",
 }: {
   before: string;
   after: string;
   altBefore?: string;
   altAfter?: string;
   aspect?: string;
+  position?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(38);
@@ -52,11 +54,11 @@ export default function BeforeAfter({
     >
       {/* before (full) */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={before} alt={altBefore} className="absolute inset-0 h-full w-full object-cover" draggable={false} loading="lazy" decoding="async" />
+      <img src={before} alt={altBefore} className={`absolute inset-0 h-full w-full object-cover ${position}`} draggable={false} loading="lazy" decoding="async" />
       {/* after (clipped) */}
       <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={after} alt={altAfter} className="absolute inset-0 h-full w-full object-cover" draggable={false} loading="lazy" decoding="async" />
+        <img src={after} alt={altAfter} className={`absolute inset-0 h-full w-full object-cover ${position}`} draggable={false} loading="lazy" decoding="async" />
       </div>
 
       {/* jet divider */}

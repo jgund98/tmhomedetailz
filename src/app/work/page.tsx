@@ -20,6 +20,8 @@ const SHOTS = [
   { src: "/images/sidewalk.jpg", alt: "Surface cleaner cutting a clean lane through dirty concrete", label: "Walkway surface clean", tall: true },
   { src: "/images/steam.jpg", alt: "Hot water pass throwing steam off a sidewalk", label: "Hot water sanitation", tall: true },
   { src: "/images/building.jpg", alt: "Handrail ramp being surface cleaned", label: "Entry ramp restoration", tall: true },
+  { src: "/images/engine-bay.jpg", alt: "Semi engine bay being degreased", label: "Engine bay degrease", tall: true },
+  { src: "/images/field-driveway.jpg", alt: "TM trailer rig set up on a residential driveway", label: "Residential rig, on site", tall: true },
 ];
 
 export default function WorkPage() {
@@ -47,9 +49,10 @@ export default function WorkPage() {
             <BeforeAfter
               before="/images/house-dirty.jpg"
               after="/images/house-clean.jpg"
-              altBefore="Home with algae-stained concrete before washing"
+              altBefore="Home with an algae-stained sidewalk before washing"
               altAfter="Same home with bright clean concrete after washing"
               aspect="aspect-[4/5] sm:aspect-[16/9]"
+              position="object-bottom"
             />
           </Reveal>
 
