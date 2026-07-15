@@ -39,7 +39,7 @@ const PROPERTY_TYPES = [
         <circle cx="17" cy="17.5" r="1.8" stroke="currentColor" strokeWidth="2" />
       </svg>
     ),
-    services: ["Trucks & trailers", "Heavy equipment", "Vans / box trucks", "Weekly or monthly route"],
+    services: ["Trucks & trailers", "Heavy equipment", "Vans / box trucks", "Dump trucks", "Yard / lot wash", "Recurring route"],
   },
 ];
 
@@ -139,7 +139,7 @@ export default function QuoteForm() {
             <p className="display mt-8 text-lg text-ink">
               What needs the wash? <span className="text-sm font-semibold normal-case text-slate">(tap all that apply)</span>
             </p>
-            <div className="mt-4 flex flex-wrap gap-2.5">
+            <div className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {active.services.map((s) => {
                 const on = services.includes(s);
                 return (
@@ -148,7 +148,7 @@ export default function QuoteForm() {
                     type="button"
                     onClick={() => toggle(s)}
                     aria-pressed={on}
-                    className={`rounded-full border px-4 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
+                    className={`rounded-full border px-3 py-2.5 text-center text-xs font-bold uppercase tracking-wider transition-all duration-200 ${
                       on ? "border-hydro bg-hydro text-abyss" : "border-slate/30 text-slate hover:border-hydro/60 hover:text-brand"
                     }`}
                   >

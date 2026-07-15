@@ -48,26 +48,18 @@ export default function Nav() {
           scrolled ? "py-3" : "py-4 md:py-5"
         }`}
       >
-        {/* lockup — the real mark with room to breathe */}
-        <Link href="/" className="group flex shrink-0 items-center gap-3.5" aria-label="TM Home Detailz home">
+        {/* the real lockup, exactly as the brand kit draws it */}
+        <Link href="/" className="group flex shrink-0 items-center" aria-label="TM Home Detailz home">
           <Image
-            src="/images/logo-white.png"
-            alt=""
-            width={112}
-            height={112}
+            src="/images/logo-main.png"
+            alt="TM Home Detailz — tmhomedetailz@gmail.com · 352-602-9854"
+            width={1500}
+            height={307}
             priority
-            className={`w-auto object-contain drop-shadow-[0_2px_12px_rgba(2,171,223,0.35)] transition-all duration-500 group-hover:-rotate-3 ${
-              scrolled ? "h-12 md:h-13" : "h-13 md:h-16"
+            className={`w-auto object-contain drop-shadow-[0_2px_10px_rgba(2,171,223,0.25)] transition-all duration-500 ${
+              scrolled ? "h-10 md:h-11" : "h-11 md:h-14"
             }`}
           />
-          <span className="leading-none">
-            <span className="display block text-lg tracking-tight text-foam md:text-xl">
-              TM Home <span className="text-hydro">Detailz</span>
-            </span>
-            <span className="mt-1.5 block text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-mist">
-              Pressure Washing · Lake County FL
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 xl:flex" aria-label="Primary">

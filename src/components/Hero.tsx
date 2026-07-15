@@ -29,7 +29,7 @@ export default function Hero() {
     <section ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-abyss">
       {/* ---------- mobile backdrop: the pool-deck footage under water glass ---------- */}
       <div className="absolute inset-0 md:hidden" aria-hidden="true">
-        <Image src="/images/hero-poster.jpg" alt="" fill priority className="object-cover object-[62%_center]" sizes="100vw" />
+        <Image src="/images/hero-spray-poster.jpg" alt="" fill priority className="object-cover object-[62%_center]" sizes="100vw" />
         {desktop === false && (
           <video
             autoPlay
@@ -37,10 +37,10 @@ export default function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster="/images/hero-poster.jpg"
+            poster="/images/hero-spray-poster.jpg"
             className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
           >
-            <source src="/videos/hero-pool.mp4" type="video/mp4" />
+            <source src="/videos/hero-spray.mp4" type="video/mp4" />
           </video>
         )}
         <div className="absolute inset-0 bg-abyss/55" />
@@ -51,7 +51,7 @@ export default function Hero() {
       <div className="absolute inset-y-0 right-0 hidden w-[57%] md:block" aria-hidden="true">
         <div className="absolute inset-y-0 -right-40 left-0 origin-top-left skew-x-[7deg] overflow-hidden">
           <div className="absolute -inset-x-24 inset-y-0 origin-top-left -skew-x-[7deg]">
-            <Image src="/images/hero-poster.jpg" alt="" fill priority className="object-cover object-[55%_60%]" sizes="60vw" />
+            <Image src="/images/hero-spray-poster.jpg" alt="" fill priority className="object-cover object-[55%_60%]" sizes="60vw" />
             {desktop === true && (
               <video
                 autoPlay
@@ -59,10 +59,10 @@ export default function Hero() {
                 loop
                 playsInline
                 preload="metadata"
-                poster="/images/hero-poster.jpg"
+                poster="/images/hero-spray-poster.jpg"
                 className="absolute inset-0 h-full w-full object-cover object-[55%_60%]"
               >
-                <source src="/videos/hero-pool.mp4" type="video/mp4" />
+                <source src="/videos/hero-spray.mp4" type="video/mp4" />
               </video>
             )}
           </div>
@@ -157,8 +157,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 2.5 }}
             className="mt-7 max-w-md text-base leading-relaxed text-mist md:text-lg"
           >
-            Driveways, homes, storefronts, and whole fleets — washed hot, washed right,
-            and photographed to prove it.
+            Driveways, homes, storefronts, and whole fleets — washed hot, washed right, and photographed to prove it.
           </motion.p>
 
           <motion.div

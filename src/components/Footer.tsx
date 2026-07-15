@@ -19,12 +19,15 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-5 pb-10 pt-16 md:px-8">
           <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-20">
             <div>
-              <div className="flex items-center gap-4">
-                <Image src="/images/logo-white.png" alt="TM Home Detailz logo" width={96} height={96} className="h-20 w-20 object-contain" />
-                <div>
-                  <p className="display text-2xl text-foam">TM Home Detailz</p>
-                  <p className="label mt-1 text-hydro">The Detailz make the difference</p>
-                </div>
+              <div>
+                <Image
+                  src="/images/logo-main.png"
+                  alt="TM Home Detailz — tmhomedetailz@gmail.com · 352-602-9854"
+                  width={1500}
+                  height={307}
+                  className="h-14 w-auto object-contain md:h-16"
+                />
+                <p className="label mt-4 text-hydro">The Detailz make the difference</p>
               </div>
               <p className="mt-6 max-w-sm text-sm leading-relaxed text-mist">
                 Family-owned commercial pressure washing based in {SITE.base} — building washes,
