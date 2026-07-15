@@ -40,7 +40,7 @@ export default function Nav() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "border-b border-hydro/15 bg-abyss/92 shadow-[0_8px_32px_rgba(4,18,31,0.35)] backdrop-blur-xl"
-          : "bg-gradient-to-b from-abyss/80 to-transparent"
+          : "border-b border-foam/[0.06] bg-gradient-to-b from-abyss/95 via-abyss/65 to-abyss/0"
       }`}
     >
       <div
@@ -79,9 +79,9 @@ export default function Nav() {
           {/* call/text chip — a real element, not floating text */}
           <a
             href={SITE.phoneHref}
-            className="group/call flex items-center gap-3 rounded-full border border-foam/20 py-2 pl-2.5 pr-5 transition-colors hover:border-hydro/60"
+            className="group/call flex items-center gap-3 rounded-full border border-foam/25 bg-abyss/50 py-2 pl-2.5 pr-5 shadow-[0_4px_16px_rgba(4,18,31,0.35)] backdrop-blur-md transition-colors hover:border-hydro/70"
           >
-            <span className="grid h-9 w-9 place-items-center rounded-full bg-hydro/15 text-hydro transition-colors group-hover/call:bg-hydro group-hover/call:text-abyss">
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-hydro text-abyss transition-transform duration-300 group-hover/call:scale-105">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M5 4h4l1.5 4.5-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2L20 15v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"
@@ -92,7 +92,7 @@ export default function Nav() {
               </svg>
             </span>
             <span className="leading-none">
-              <span className="block text-[0.58rem] font-bold uppercase tracking-[0.22em] text-mist-dim">Call or text</span>
+              <span className="block text-[0.58rem] font-bold uppercase tracking-[0.22em] text-mist">Call or text</span>
               <span className="display mt-1 block text-[0.95rem] text-foam transition-colors group-hover/call:text-hydro">
                 {SITE.phone}
               </span>

@@ -140,19 +140,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </Reveal>
-                <Reveal delay={0.08}>
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-brand/10 shadow-[0_20px_50px_-24px_rgba(13,37,55,0.4)]">
-                    <Image
-                      src="/images/rig-truck.jpg"
-                      alt="The TM Home Detailz branded F-450 rig, designed by Travis's wife"
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 40vw, 100vw"
-                    />
-                    <span className="label absolute bottom-3 left-4 text-spray">The rig — her design, my office</span>
-                  </div>
-                </Reveal>
-                <Reveal delay={0.12}>
+                <Reveal delay={0.1}>
                   <div className="grid grid-cols-2 gap-4">
                     {STATS.map((s) => (
                       <div key={s.label} className="rounded-2xl border border-brand/15 bg-white p-5 shadow-[0_12px_32px_-18px_rgba(13,37,55,0.3)]">

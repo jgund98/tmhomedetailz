@@ -23,8 +23,8 @@ export default function ContactPage() {
 
       <section className="bg-foam pb-24 text-ink md:pb-32">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
-            <div>
+          <div className="grid items-start gap-12 pt-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16 lg:pt-0">
+            <div className="xl:pt-16">
               <Reveal>
                 <div className="flex flex-col gap-8">
                   <div>
@@ -71,7 +71,8 @@ export default function ContactPage() {
                 </div>
               </Reveal>
             </div>
-            <Reveal delay={0.12}>
+            {/* the form floats up into the hero — no dead water above the fold */}
+            <Reveal delay={0.12} className="relative z-10 xl:-mt-64">
               <QuoteForm />
             </Reveal>
           </div>
