@@ -21,13 +21,13 @@ export default function Home() {
       <ServiceFlood />
       <FleetSection />
 
-      {/* proof: real before/after */}
-      <section className="caustics grain relative bg-trench py-24 md:py-32">
+      {/* proof: before/after */}
+      <section className="relative bg-foam py-24 text-ink md:py-32">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-16">
             <div>
               <Reveal>
-                <p className="label mb-4 flex items-center gap-3 text-hydro">
+                <p className="label mb-4 flex items-center gap-3 text-brand">
                   <SplashMark className="h-3.5" />
                   Receipts, not promises
                 </p>
@@ -40,10 +40,10 @@ export default function Home() {
                 </h2>
               </Reveal>
               <Reveal delay={0.16}>
-                <p className="mt-6 max-w-md text-base leading-relaxed text-mist">
-                  We document every project before, during, and after — because the
-                  transformation is the product. Drag the wand across a real job and
-                  judge for yourself.
+                <p className="mt-6 max-w-md text-base leading-relaxed text-slate">
+                  Curb appeal isn&apos;t a coat of paint — it&apos;s concrete that looks
+                  poured yesterday. Drag the wand and watch a whole front yard change
+                  its mind.
                 </p>
               </Reveal>
               <Reveal delay={0.24}>
@@ -54,10 +54,11 @@ export default function Home() {
             </div>
             <Reveal delay={0.12}>
               <BeforeAfter
-                before="/images/corner-before.jpg"
-                after="/images/corner-after.jpg"
-                altBefore="Grease-blackened service entry before cleaning"
-                altAfter="Same service entry restored to clean concrete"
+                before="/images/house-dirty.jpg"
+                after="/images/house-clean.jpg"
+                altBefore="Florida home with a grimy, algae-stained sidewalk"
+                altAfter="The same home with bright, freshly washed concrete"
+                aspect="aspect-[3/2]"
               />
             </Reveal>
           </div>

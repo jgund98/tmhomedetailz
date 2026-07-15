@@ -30,9 +30,8 @@ export default function AreaRipple() {
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="display text-4xl md:text-6xl">
-            One drop here.
-            <br />
-            Ripples across <span className="text-hydro">Central Florida.</span>
+            One drop here. Ripples across{" "}
+            <span className="text-hydro">Central&nbsp;Florida.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.16}>

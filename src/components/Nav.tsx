@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SITE, SERVICES } from "@/lib/site";
-import JetButton from "@/components/JetButton";
 
 const LINKS = [
   { href: "/services", label: "Services" },
@@ -39,49 +38,84 @@ export default function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-abyss/85 backdrop-blur-md border-b border-hydro/10" : "bg-transparent"
+        scrolled
+          ? "border-b border-hydro/15 bg-abyss/92 shadow-[0_8px_32px_rgba(4,18,31,0.35)] backdrop-blur-xl"
+          : "bg-gradient-to-b from-abyss/80 to-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 md:px-8">
-        <Link href="/" className="group flex items-center gap-3" aria-label="TM Home Detailz home">
+      <div
+        className={`mx-auto flex max-w-[90rem] items-center justify-between gap-6 px-5 transition-all duration-500 md:px-8 ${
+          scrolled ? "py-3" : "py-4 md:py-5"
+        }`}
+      >
+        {/* lockup — the real mark with room to breathe */}
+        <Link href="/" className="group flex shrink-0 items-center gap-3.5" aria-label="TM Home Detailz home">
           <Image
             src="/images/logo-white.png"
             alt=""
-            width={52}
-            height={52}
-            className="h-11 w-11 object-contain transition-transform duration-500 group-hover:rotate-[-4deg] md:h-13 md:w-13"
+            width={112}
+            height={112}
             priority
+            className={`w-auto object-contain drop-shadow-[0_2px_12px_rgba(2,171,223,0.35)] transition-all duration-500 group-hover:-rotate-3 ${
+              scrolled ? "h-12 md:h-13" : "h-13 md:h-16"
+            }`}
           />
           <span className="leading-none">
-            <span className="display block text-[1.05rem] tracking-tight text-foam">TM</span>
-            <span className="label block text-[0.55rem] text-mist">Home Detailz</span>
+            <span className="display block text-lg tracking-tight text-foam md:text-xl">
+              TM Home <span className="text-hydro">Detailz</span>
+            </span>
+            <span className="mt-1.5 block text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-mist">
+              Pressure Washing · Lake County FL
+            </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-9 xl:flex" aria-label="Primary">
           {LINKS.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               data-active={pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href))}
-              className="drip-link label py-2 text-foam/85 transition-colors hover:text-foam"
+              className="drip-link py-2 text-[0.8rem] font-bold uppercase tracking-[0.16em] text-foam/90 transition-colors hover:text-foam"
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 lg:flex">
-          <a href={SITE.phoneHref} className="label text-spray transition-colors hover:text-foam">
-            {SITE.phone}
+        <div className="hidden items-center gap-3 xl:flex">
+          {/* call/text chip — a real element, not floating text */}
+          <a
+            href={SITE.phoneHref}
+            className="group/call flex items-center gap-3 rounded-full border border-foam/20 py-2 pl-2.5 pr-5 transition-colors hover:border-hydro/60"
+          >
+            <span className="grid h-9 w-9 place-items-center rounded-full bg-hydro/15 text-hydro transition-colors group-hover/call:bg-hydro group-hover/call:text-abyss">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M5 4h4l1.5 4.5-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2L20 15v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+            <span className="leading-none">
+              <span className="block text-[0.58rem] font-bold uppercase tracking-[0.22em] text-mist-dim">Call or text</span>
+              <span className="display mt-1 block text-[0.95rem] text-foam transition-colors group-hover/call:text-hydro">
+                {SITE.phone}
+              </span>
+            </span>
           </a>
-          <JetButton href="/contact" small>
-            Get a Quote
-          </JetButton>
+          <Link
+            href="/contact"
+            className="btn-jet label rounded-full bg-hydro px-7 py-3.5 text-abyss transition-colors"
+          >
+            Free Quote
+          </Link>
         </div>
 
         {/* mobile: tap-to-call + menu */}
-        <div className="flex items-center gap-1.5 lg:hidden">
+        <div className="flex items-center gap-1.5 xl:hidden">
           <a
             href={SITE.phoneHref}
             aria-label={`Call ${SITE.phone}`}
@@ -96,25 +130,25 @@ export default function Nav() {
               />
             </svg>
           </a>
-        <button
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          className="relative z-[60] flex h-11 w-11 items-center justify-center"
-        >
-          <span className="relative block h-3.5 w-7">
-            <span
-              className={`absolute left-0 top-0 h-0.5 w-full bg-foam transition-all duration-300 ${
-                open ? "top-1/2 -translate-y-1/2 rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute bottom-0 left-0 h-0.5 bg-hydro transition-all duration-300 ${
-                open ? "bottom-1/2 w-full translate-y-1/2 -rotate-45" : "w-2/3"
-              }`}
-            />
-          </span>
-        </button>
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="relative z-[60] flex h-11 w-11 items-center justify-center"
+          >
+            <span className="relative block h-3.5 w-7">
+              <span
+                className={`absolute left-0 top-0 h-0.5 w-full bg-foam transition-all duration-300 ${
+                  open ? "top-1/2 -translate-y-1/2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-hydro transition-all duration-300 ${
+                  open ? "bottom-1/2 w-full translate-y-1/2 -rotate-45" : "w-2/3"
+                }`}
+              />
+            </span>
+          </button>
         </div>
       </div>
 
@@ -126,9 +160,8 @@ export default function Nav() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="caustics fixed inset-0 z-50 flex flex-col bg-trench lg:hidden"
+            className="caustics fixed inset-0 z-50 flex flex-col bg-trench xl:hidden"
           >
-            {/* real mark as a watermark behind the menu */}
             <Image
               src="/images/logo-white.png"
               alt=""
@@ -137,7 +170,7 @@ export default function Nav() {
               aria-hidden="true"
               className="pointer-events-none absolute -bottom-10 -right-10 w-64 opacity-[0.07]"
             />
-            <div className="relative flex-1 overflow-y-auto px-6 pb-10 pt-24">
+            <div className="relative flex-1 overflow-y-auto px-6 pb-10 pt-28">
               <p className="label mb-6 text-mist-dim">Menu</p>
               <div className="flex flex-col gap-1">
                 {LINKS.map((l, i) => (
@@ -157,12 +190,7 @@ export default function Nav() {
                 ))}
               </div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.45 }}
-                className="mt-8"
-              >
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }} className="mt-8">
                 <p className="label mb-4 text-mist-dim">Services</p>
                 <div className="grid grid-cols-2 gap-x-4 gap-y-3">
                   {SERVICES.map((s) => (
@@ -173,9 +201,11 @@ export default function Nav() {
                 </div>
 
                 <div className="mt-10 flex flex-col gap-4">
-                  <JetButton href="/contact">Get a Quote</JetButton>
+                  <Link href="/contact" className="btn-jet label rounded-full bg-hydro px-8 py-4 text-center text-abyss">
+                    Get a Free Quote
+                  </Link>
                   <a href={SITE.phoneHref} className="label text-center text-spray">
-                    Call {SITE.phone}
+                    Call or text {SITE.phone}
                   </a>
                 </div>
               </motion.div>

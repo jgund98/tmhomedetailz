@@ -6,16 +6,23 @@ import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
 import { SITE } from "@/lib/site";
 
-/* Closing CTA: dark water with a slow surface swell and one clear ask. */
+/* Closing CTA over real footage: sunlit spray, slowed to a shimmer. */
 export default function CtaBand() {
   return (
-    <section className="caustics grain relative overflow-hidden bg-abyss py-28 md:py-36">
-      {/* slow moving waterline */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 overflow-hidden" aria-hidden="true">
-        <svg viewBox="0 0 1440 96" preserveAspectRatio="none" className="swell absolute top-0 h-full w-[106%]">
-          <path d="M0 30 C 200 70, 420 0, 640 40 C 860 80, 1080 10, 1440 46 L 1440 0 L 0 0 Z" fill="#071e30" />
-        </svg>
-      </div>
+    <section className="relative overflow-hidden bg-abyss py-28 md:py-36">
+      {/* sunlit mist footage */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        className="absolute inset-0 h-full w-full object-cover opacity-45"
+        aria-hidden="true"
+      >
+        <source src="/videos/spray-sun.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-abyss via-abyss/60 to-abyss" aria-hidden="true" />
 
       {/* real splash, ghosted behind the ask */}
       <Image
@@ -24,23 +31,22 @@ export default function CtaBand() {
         width={640}
         height={320}
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 bottom-6 w-80 rotate-6 opacity-[0.06] md:w-[30rem]"
+        className="pointer-events-none absolute -right-24 bottom-6 w-80 rotate-6 opacity-[0.08] md:w-[30rem]"
       />
 
       <div className="relative mx-auto max-w-5xl px-5 text-center md:px-8">
         <Reveal>
-          <p className="label mb-5 text-hydro">Free custom quotes · Fast turnaround</p>
+          <p className="label mb-5 text-spray">Free custom quotes · Fast turnaround</p>
         </Reveal>
         <Reveal delay={0.08}>
-          <h2 className="display text-[clamp(2.6rem,7.5vw,5.5rem)]">
-            Let&apos;s make your property
-            <br />
+          <h2 className="display text-[clamp(2.5rem,7.5vw,5.5rem)] text-foam">
+            Let&apos;s make yours <br className="hidden md:block" />
             the <span className="text-hydro">clean one</span> on the street.
           </h2>
         </Reveal>
         <Reveal delay={0.18}>
           <div className="mt-10 flex flex-col items-center justify-center gap-5 sm:flex-row">
-            <JetButton href="/contact">Request a Quote</JetButton>
+            <JetButton href="/contact">Get My Free Quote</JetButton>
             <motion.a
               href={SITE.phoneHref}
               whileHover={{ scale: 1.03 }}

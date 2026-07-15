@@ -88,7 +88,7 @@ export default function Footer() {
               </ul>
               <p className="label mb-3 mt-8 text-mist-dim">Proudly serving</p>
               <p className="text-xs leading-relaxed text-mist-dim">
-                {`${CITIES.slice(0, 10).join(" · ")} & beyond`}
+                {`${CITIES.slice(0, 10).join(" · ")} & beyond`}
               </p>
             </div>
           </div>

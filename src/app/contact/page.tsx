@@ -5,63 +5,63 @@ import { Reveal } from "@/components/Reveal";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Get a Free Quote",
   description:
-    "Request a custom pressure washing quote from TM Home Detailz — commercial, fleet, heavy equipment, and residential across Lake County, Florida.",
+    "Request a free pressure washing quote from TM Home Detailz — homes, businesses, fleets, and heavy equipment across Lake County, Florida.",
 };
 
 export default function ContactPage() {
   return (
     <>
       <PageHero
-        kicker="Contact"
+        kicker="Free Quote"
         title="Let's talk"
         accent="Detailz."
-        body="One-time deep clean or a standing maintenance program — tell us about the property and we'll come back with a straight answer and a custom quote."
+        body="Three quick questions and we'll come back with a straight price — usually the same day. No spam, no pushy calls."
       />
 
-      <section className="bg-abyss pb-24 md:pb-32">
+      <section className="bg-foam pb-24 text-ink md:pb-32">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-16">
             <div>
               <Reveal>
                 <div className="flex flex-col gap-8">
                   <div>
-                    <p className="label mb-3 text-mist-dim">Call or text</p>
-                    <a href={SITE.phoneHref} className="display text-4xl text-foam transition-colors hover:text-hydro md:text-5xl">
+                    <p className="label mb-3 text-slate">Call or text</p>
+                    <a href={SITE.phoneHref} className="display text-4xl text-ink transition-colors hover:text-hydro md:text-5xl">
                       {SITE.phone}
                     </a>
                   </div>
                   <div>
-                    <p className="label mb-3 text-mist-dim">Email</p>
-                    <a href={`mailto:${SITE.email}`} className="text-lg font-medium text-spray underline-offset-4 hover:underline">
+                    <p className="label mb-3 text-slate">Email</p>
+                    <a href={`mailto:${SITE.email}`} className="text-lg font-semibold text-brand underline-offset-4 hover:underline">
                       {SITE.email}
                     </a>
                   </div>
                   <div>
-                    <p className="label mb-3 text-mist-dim">Service area</p>
-                    <p className="max-w-xs text-base leading-relaxed text-mist">
-                      Lake County, FL and surrounding Central Florida — commercial crews
-                      travel further for the right project.
+                    <p className="label mb-3 text-slate">Service area</p>
+                    <p className="max-w-xs text-base leading-relaxed text-slate">
+                      Lake County, FL and surrounding Central Florida — crews travel
+                      further for the right project.
                     </p>
                   </div>
                   <div>
-                    <p className="label mb-3 text-mist-dim">Follow the transformations</p>
+                    <p className="label mb-3 text-slate">Follow the transformations</p>
                     <div className="flex gap-5">
                       {[
                         { href: SITE.facebook, label: "Facebook" },
                         { href: SITE.instagram, label: "Instagram" },
                         { href: SITE.tiktok, label: "TikTok" },
                       ].map((s) => (
-                        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="label text-spray transition-colors hover:text-foam">
+                        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="label text-brand transition-colors hover:text-hydro">
                           {s.label}
                         </a>
                       ))}
                     </div>
                   </div>
-                  <div className="rounded-2xl border border-hydro/15 bg-trench p-6">
-                    <p className="label mb-3 text-hydro">Fast quotes, straight answers</p>
-                    <p className="text-sm leading-relaxed text-mist">
+                  <div className="rounded-2xl border border-brand/15 bg-white p-6 shadow-[0_16px_40px_-20px_rgba(13,37,55,0.25)]">
+                    <p className="label mb-3 text-brand">Fast quotes, straight answers</p>
+                    <p className="text-sm leading-relaxed text-slate">
                       Most quotes go out within one business day. Commercial and fleet
                       work can be scheduled nights and weekends so your operation never
                       slows down.

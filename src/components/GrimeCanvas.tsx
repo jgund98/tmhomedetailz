@@ -41,8 +41,8 @@ export default function GrimeCanvas() {
     const dh = img.naturalHeight * s;
     ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
-    // murky cast so the before layer reads as "dirty" even where photos align
-    ctx.fillStyle = "rgba(38,32,20,0.18)";
+    // faint murky cast so even matching areas read "unwashed"
+    ctx.fillStyle = "rgba(48,42,26,0.10)";
     ctx.fillRect(0, 0, w, h);
     const spray = sprayRef.current!;
     spray.width = w * dpr;
@@ -57,7 +57,7 @@ export default function GrimeCanvas() {
 
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/images/corner-before.jpg";
+    img.src = "/images/sidewalk-dirty.jpg";
     img.onload = () => {
       imgRef.current = img;
       setReady(true);
@@ -170,12 +170,12 @@ export default function GrimeCanvas() {
   };
 
   return (
-    <section id="proof" className="caustics grain relative overflow-hidden bg-trench py-24 md:py-32">
+    <section id="proof" className="relative overflow-hidden bg-ice py-24 text-ink md:py-32">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
           <div>
             <Reveal>
-              <p className="label mb-4 flex items-center gap-3 text-hydro">
+              <p className="label mb-4 flex items-center gap-3 text-brand">
                 <SplashMark className="h-3.5" />
                 Try it yourself
               </p>
@@ -184,14 +184,14 @@ export default function GrimeCanvas() {
               <h2 className="display max-w-2xl text-4xl md:text-6xl">
                 Grab the wand.
                 <br />
-                <span className="text-hydro">Wash this wall.</span>
+                <span className="text-hydro">Wash this sidewalk.</span>
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.15} className="max-w-sm">
-            <p className="text-sm leading-relaxed text-mist">
-              This is a real service corridor we restored — grease, algae, and years of buildup.
-              Drag across it and see exactly what our hot-water process uncovered.
+            <p className="text-sm leading-relaxed text-slate">
+              One Florida summer is all it takes — algae, mildew, and dirt baked into the
+              concrete. Drag across it and watch a year of grime disappear.
             </p>
           </Reveal>
         </div>
@@ -199,13 +199,13 @@ export default function GrimeCanvas() {
         <Reveal delay={0.1}>
           <div
             ref={wrapRef}
-            className="group relative aspect-[4/5] w-full touch-none select-none overflow-hidden rounded-2xl border border-hydro/15 sm:aspect-[16/10] cursor-crosshair"
+            className="group relative aspect-[4/3] w-full touch-none select-none overflow-hidden rounded-2xl border border-brand/15 shadow-[0_24px_60px_-24px_rgba(13,37,55,0.35)] sm:aspect-[2/1] cursor-crosshair"
           >
             {/* AFTER photo underneath */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/corner-after.jpg"
-              alt="Restored, clean concrete service corridor — the after result"
+              src="/images/sidewalk-clean.jpg"
+              alt="The same sidewalk restored to bright, clean concrete"
               className="absolute inset-0 h-full w-full object-cover"
               draggable={false}
               loading="lazy"
@@ -276,7 +276,7 @@ export default function GrimeCanvas() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-6 text-center text-xs uppercase tracking-[0.2em] text-mist-dim">
+          <p className="mt-6 text-center text-xs uppercase tracking-[0.2em] text-slate">
             Satisfying, right? Now imagine your whole property.
           </p>
         </Reveal>

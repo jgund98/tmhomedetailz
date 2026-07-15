@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-abyss: #04121f;
-  --color-trench: #071e30;
-  --color-deep: #0a2a47;
+  --color-abyss: #0a2338;
+  --color-trench: #113252;
+  --color-deep: #16406b;
   --color-brand: #105089;
   --color-hydro: #02abdf;
   --color-spray: #7fd6f2;
-  --color-foam: #f2f8fc;
-  --color-mist: #9fc4da;
-  --color-mist-dim: #5f87a3;
+  --color-foam: #f4f9fd;
+  --color-ice: #e3f1f9;
+  --color-mist: #b9d8ea;
+  --color-mist-dim: #7fa3bd;
+  --color-ink: #0d2537;
+  --color-slate: #46647a;
   --color-brass: #c2a265;
 
   --font-display: var(--font-archivo), "Arial Black", sans-serif;
@@ -61,9 +64,9 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.35;
-  background-image: radial-gradient(ellipse 80% 50% at 20% 0%, rgba(2, 171, 223, 0.13), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(16, 80, 137, 0.22), transparent 65%);
+  opacity: 0.5;
+  background-image: radial-gradient(ellipse 80% 50% at 20% 0%, rgba(2, 171, 223, 0.2), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 100%, rgba(22, 64, 107, 0.35), transparent 65%);
 }
 
 .grain::after {

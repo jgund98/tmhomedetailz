@@ -31,14 +31,32 @@ export default function WorkPage() {
       />
 
       {/* the money shot: interactive before/after story */}
-      <section className="bg-abyss pb-20">
+      <section className="bg-foam pb-20 pt-20 text-ink">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
             <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
               <h2 className="display text-3xl md:text-4xl">
+                A Florida front yard, <span className="text-hydro">found again</span>
+              </h2>
+              <p className="label text-slate">Drag the wand ↔</p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <BeforeAfter
+              before="/images/house-dirty.jpg"
+              after="/images/house-clean.jpg"
+              altBefore="Home with algae-stained concrete before washing"
+              altAfter="Same home with bright clean concrete after washing"
+              aspect="aspect-[4/5] sm:aspect-[16/9]"
+            />
+          </Reveal>
+
+          <Reveal>
+            <div className="mb-8 mt-20 flex flex-wrap items-end justify-between gap-4">
+              <h2 className="display text-3xl md:text-4xl">
                 Service entry, <span className="text-hydro">years of grease</span>
               </h2>
-              <p className="label text-mist-dim">Drag the wand ↔</p>
+              <p className="label text-slate">Real job · documented</p>
             </div>
           </Reveal>
           <Reveal delay={0.1}>
@@ -54,13 +72,13 @@ export default function WorkPage() {
           {/* during strip */}
           <Reveal delay={0.15}>
             <div className="mt-6 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-center">
-              <div className="relative aspect-[3/4] max-h-80 overflow-hidden rounded-2xl border border-hydro/15 md:max-h-none">
+              <div className="relative aspect-[3/4] max-h-80 overflow-hidden rounded-2xl border border-brand/10 shadow-[0_20px_50px_-24px_rgba(13,37,55,0.4)] md:max-h-none">
                 <Image src="/images/corner-during.jpg" alt="Mid-clean: degreaser foam working across the slab" fill className="object-cover" sizes="(min-width: 768px) 35vw, 100vw" />
                 <span className="label absolute left-4 top-4 rounded-full bg-abyss/70 px-3.5 py-1.5 text-spray backdrop-blur-sm">During</span>
               </div>
-              <div className="rounded-2xl border border-hydro/15 bg-trench p-8 md:p-10">
-                <p className="label mb-4 text-hydro">How this one went down</p>
-                <p className="text-base leading-relaxed text-mist">
+              <div className="rounded-2xl border border-brand/15 bg-white p-8 shadow-[0_20px_50px_-28px_rgba(13,37,55,0.3)] md:p-10">
+                <p className="label mb-4 text-brand">How this one went down</p>
+                <p className="text-base leading-relaxed text-slate">
                   Degrease → dwell → hot-water surface clean → rinse and neutralize. The
                   middle photo is the part most companies skip: chemistry doing its work
                   before a single PSI gets spent. That&apos;s why the after looks like new
@@ -73,11 +91,11 @@ export default function WorkPage() {
       </section>
 
       {/* gallery */}
-      <section className="bg-abyss pb-24 md:pb-32">
+      <section className="bg-foam pb-24 text-ink md:pb-32">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <Reveal>
-            <p className="label mb-8 flex items-center gap-3 text-hydro">
-              <span className="inline-block h-px w-10 bg-hydro" />
+            <p className="label mb-8 flex items-center gap-3 text-brand">
+              <span className="inline-block h-px w-10 bg-brand" />
               From the field
             </p>
           </Reveal>
@@ -101,13 +119,13 @@ export default function WorkPage() {
             ))}
           </div>
           <Reveal delay={0.2}>
-            <p className="mt-10 text-center text-sm text-mist-dim">
+            <p className="mt-10 text-center text-sm text-slate">
               Fresh transformations drop weekly on{" "}
-              <a href="https://www.instagram.com/tmhomedetailz/" target="_blank" rel="noopener noreferrer" className="text-spray underline underline-offset-4">
+              <a href="https://www.instagram.com/tmhomedetailz/" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand underline underline-offset-4">
                 Instagram
               </a>{" "}
               and{" "}
-              <a href="https://www.tiktok.com/@tmhomedetailz" target="_blank" rel="noopener noreferrer" className="text-spray underline underline-offset-4">
+              <a href="https://www.tiktok.com/@tmhomedetailz" target="_blank" rel="noopener noreferrer" className="font-semibold text-brand underline underline-offset-4">
                 TikTok
               </a>
               .

@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import MobileDock from "@/components/MobileDock";
+import TravisPopup from "@/components/TravisPopup";
 import { SITE } from "@/lib/site";
 
 const archivo = Archivo({
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <MobileDock />
+        <TravisPopup />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -22,7 +22,7 @@ export default function ServicesPage() {
         body="Every property is different, so every quote is custom — walked, measured, and priced straight. Here's what we bring to yours."
       />
 
-      <section className="bg-abyss pb-24 md:pb-32">
+      <section className="bg-foam pb-24 pt-20 text-ink md:pb-32">
         <div className="mx-auto flex max-w-7xl flex-col gap-20 px-5 md:gap-28 md:px-8">
           {SERVICES.map((s, i) => (
             <Reveal key={s.slug}>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
                   i % 2 ? "lg:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-hydro/15">
+                <div className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-brand/10 shadow-[0_20px_50px_-24px_rgba(13,37,55,0.4)]">
                   <Image
                     src={s.image}
                     alt={s.imageAlt}
@@ -46,14 +46,14 @@ export default function ServicesPage() {
                   </span>
                 </div>
                 <div>
-                  <h2 className="display text-4xl transition-colors duration-300 group-hover:text-hydro md:text-5xl">
+                  <h2 className="display text-4xl text-ink transition-colors duration-300 group-hover:text-brand md:text-5xl">
                     {s.name}
                   </h2>
-                  <p className="mt-4 max-w-lg text-base leading-relaxed text-mist">{s.headline}</p>
-                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-mist-dim">{s.short}</p>
-                  <span className="label mt-6 inline-flex items-center gap-3 text-spray">
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-slate">{s.headline}</p>
+                  <p className="mt-3 max-w-lg text-sm leading-relaxed text-slate/80">{s.short}</p>
+                  <span className="label mt-6 inline-flex items-center gap-3 text-brand">
                     Full breakdown
-                    <span className="grid h-9 w-9 place-items-center rounded-full border border-spray/30 transition-all duration-300 group-hover:translate-x-1.5 group-hover:border-hydro group-hover:bg-hydro group-hover:text-abyss">
+                    <span className="grid h-9 w-9 place-items-center rounded-full border border-brand/25 transition-all duration-300 group-hover:translate-x-1.5 group-hover:border-hydro group-hover:bg-hydro group-hover:text-abyss">
                       <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                         <path d="M2 8h11M9 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>

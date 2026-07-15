@@ -29,39 +29,39 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     <>
       <PageHero kicker={`Services / ${s.name}`} title={s.name} body={s.headline} image={s.image} imageAlt={s.imageAlt} />
 
-      <section className="bg-abyss pb-24 md:pb-32">
+      <section className="bg-foam pb-24 pt-20 text-ink md:pb-32">
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid gap-14 lg:grid-cols-[1.3fr_1fr] lg:gap-20">
             <div>
               <Reveal>
-                <p className="max-w-2xl text-lg leading-relaxed text-mist">{s.intro}</p>
+                <p className="max-w-2xl text-lg leading-relaxed text-slate">{s.intro}</p>
               </Reveal>
 
               <div className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2">
                 {s.bullets.map((b, i) => (
                   <Reveal key={b.title} delay={i * 0.06}>
-                    <div className="relative border-l-2 border-hydro/30 pl-6">
+                    <div className="relative border-l-2 border-hydro/40 pl-6">
                       <span className="absolute -left-[5px] top-1.5 h-2 w-2 rounded-full bg-hydro" />
-                      <h3 className="display text-xl text-foam">{b.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-mist">{b.body}</p>
+                      <h3 className="display text-xl text-ink">{b.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-slate">{b.body}</p>
                     </div>
                   </Reveal>
                 ))}
               </div>
 
               <Reveal delay={0.1}>
-                <div className="mt-16 rounded-2xl border border-hydro/15 bg-trench p-8 md:p-10">
-                  <p className="label mb-5 text-hydro">Perfect for</p>
+                <div className="mt-16 rounded-2xl border border-brand/15 bg-white p-8 shadow-[0_20px_50px_-28px_rgba(13,37,55,0.35)] md:p-10">
+                  <p className="label mb-5 text-brand">Perfect for</p>
                   <div className="flex flex-wrap gap-2.5">
                     {s.ideal.map((x) => (
-                      <span key={x} className="rounded-full border border-mist/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-mist">
+                      <span key={x} className="rounded-full border border-slate/25 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate">
                         {x}
                       </span>
                     ))}
                   </div>
                   <div className="mt-8 flex flex-wrap items-center gap-5">
                     <JetButton href="/contact">Get a custom quote</JetButton>
-                    <p className="text-sm text-mist-dim">Walked, measured &amp; priced straight — no pressure. Well, some.</p>
+                    <p className="text-sm text-slate">Walked, measured &amp; priced straight — no pressure. Well, some.</p>
                   </div>
                 </div>
               </Reveal>
@@ -69,9 +69,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
             {/* sticky visual rail */}
             <div className="hidden lg:block">
-              <div className="sticky top-28 flex flex-col gap-6">
+              <div className="sticky top-32 flex flex-col gap-6">
                 <Reveal>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-hydro/15">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-brand/10 shadow-[0_20px_50px_-24px_rgba(13,37,55,0.4)]">
                     <Image src={s.image} alt={s.imageAlt} fill className="object-cover" sizes="40vw" />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-abyss/80 to-transparent p-6">
                       <p className="label text-spray">{s.name} · TM Home Detailz</p>
@@ -79,13 +79,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   </div>
                 </Reveal>
                 <Reveal delay={0.08}>
-                  <div className="rounded-2xl border border-hydro/15 bg-trench p-6">
-                    <p className="label mb-4 text-mist-dim">More services</p>
+                  <div className="rounded-2xl border border-brand/15 bg-white p-6 shadow-[0_16px_40px_-24px_rgba(13,37,55,0.3)]">
+                    <p className="label mb-4 text-slate">More services</p>
                     {others.map((o) => (
                       <Link
                         key={o.slug}
                         href={`/services/${o.slug}`}
-                        className="drip-link display block border-b border-hydro/10 py-3 text-lg text-foam last:border-0 hover:text-hydro"
+                        className="drip-link display block border-b border-ink/10 py-3 text-lg text-ink last:border-0 hover:text-brand"
                       >
                         {o.name}
                       </Link>
