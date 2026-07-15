@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal, Surface } from "@/components/Reveal";
+import SplashMark from "@/components/SplashMark";
 
 export default function PageHero({
   kicker,
@@ -27,7 +28,7 @@ export default function PageHero({
       <div className="relative mx-auto max-w-7xl px-5 md:px-8">
         <Reveal>
           <p className="label mb-5 flex items-center gap-3 text-hydro">
-            <span className="inline-block h-px w-10 bg-hydro" />
+            <SplashMark className="h-3.5" />
             {kicker}
           </p>
         </Reveal>

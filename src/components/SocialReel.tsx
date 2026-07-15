@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import SplashMark from "@/components/SplashMark";
 import { SITE } from "@/lib/site";
 
 /* TikTok / Instagram, incorporated as a "satisfying feed": an endless film strip
@@ -94,7 +95,7 @@ export default function SocialReel() {
         <div>
           <Reveal>
             <p className="label mb-4 flex items-center gap-3 text-hydro">
-              <span className="inline-block h-px w-10 bg-hydro" />
+              <SplashMark className="h-3.5" />
               @tmhomedetailz · everywhere
             </p>
           </Reveal>

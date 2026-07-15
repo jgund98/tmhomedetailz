@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-20">
             <div>
               <div className="flex items-center gap-4">
-                <Image src="/images/logo-white.png" alt="TM Home Detailz logo" width={72} height={72} className="h-16 w-16 object-contain" />
+                <Image src="/images/logo-white.png" alt="TM Home Detailz logo" width={96} height={96} className="h-20 w-20 object-contain" />
                 <div>
                   <p className="display text-2xl text-foam">TM Home Detailz</p>
                   <p className="label mt-1 text-hydro">The Detailz make the difference</p>

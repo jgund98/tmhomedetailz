@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
@@ -15,6 +16,16 @@ export default function CtaBand() {
           <path d="M0 30 C 200 70, 420 0, 640 40 C 860 80, 1080 10, 1440 46 L 1440 0 L 0 0 Z" fill="#071e30" />
         </svg>
       </div>
+
+      {/* real splash, ghosted behind the ask */}
+      <Image
+        src="/images/logo-mark.png"
+        alt=""
+        width={640}
+        height={320}
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-24 bottom-6 w-80 rotate-6 opacity-[0.06] md:w-[30rem]"
+      />
 
       <div className="relative mx-auto max-w-5xl px-5 text-center md:px-8">
         <Reveal>

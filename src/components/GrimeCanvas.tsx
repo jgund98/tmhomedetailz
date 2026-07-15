@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
+import SplashMark from "@/components/SplashMark";
 
 /* Interactive set piece: a grimy surface the visitor pressure-washes themselves.
    The "before" photo is painted onto a canvas over the "after" photo; moving the
@@ -175,7 +176,7 @@ export default function GrimeCanvas() {
           <div>
             <Reveal>
               <p className="label mb-4 flex items-center gap-3 text-hydro">
-                <span className="inline-block h-px w-10 bg-hydro" />
+                <SplashMark className="h-3.5" />
                 Try it yourself
               </p>
             </Reveal>
@@ -246,7 +247,10 @@ export default function GrimeCanvas() {
                   />
                 </svg>
               </span>
-              <span className="label text-foam">{done ? "Spotless" : `${pct}% clean`}</span>
+              <span className="label flex items-center gap-2 text-foam">
+                {done && <SplashMark className="h-3" />}
+                {done ? "Spotless" : `${pct}% clean`}
+              </span>
             </div>
 
             {/* hint / completion */}

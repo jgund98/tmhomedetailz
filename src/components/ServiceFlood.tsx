@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { SERVICES } from "@/lib/site";
 import { Reveal } from "@/components/Reveal";
+import SplashMark from "@/components/SplashMark";
 
 /* Editorial service index: a big type list; hovering a row floods the side panel
    with that service's photo behind a water-wipe transition. */
@@ -19,7 +20,7 @@ export default function ServiceFlood() {
           <div>
             <Reveal>
               <p className="label mb-4 flex items-center gap-3 text-brand">
-                <span className="inline-block h-px w-10 bg-brand" />
+                <SplashMark className="h-3.5" />
                 What we wash
               </p>
             </Reveal>

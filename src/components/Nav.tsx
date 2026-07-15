@@ -128,7 +128,16 @@ export default function Nav() {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="caustics fixed inset-0 z-50 flex flex-col bg-trench lg:hidden"
           >
-            <div className="flex-1 overflow-y-auto px-6 pb-10 pt-24">
+            {/* real mark as a watermark behind the menu */}
+            <Image
+              src="/images/logo-white.png"
+              alt=""
+              width={400}
+              height={400}
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-10 -right-10 w-64 opacity-[0.07]"
+            />
+            <div className="relative flex-1 overflow-y-auto px-6 pb-10 pt-24">
               <p className="label mb-6 text-mist-dim">Menu</p>
               <div className="flex flex-col gap-1">
                 {LINKS.map((l, i) => (

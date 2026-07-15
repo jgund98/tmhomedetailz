@@ -11,6 +11,7 @@ import SocialReel from "@/components/SocialReel";
 import CtaBand from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
+import SplashMark from "@/components/SplashMark";
 
 export default function Home() {
   return (
@@ -27,7 +28,7 @@ export default function Home() {
             <div>
               <Reveal>
                 <p className="label mb-4 flex items-center gap-3 text-hydro">
-                  <span className="inline-block h-px w-10 bg-hydro" />
+                  <SplashMark className="h-3.5" />
                   Receipts, not promises
                 </p>
               </Reveal>
@@ -87,7 +88,7 @@ export default function Home() {
             <div>
               <Reveal>
                 <p className="label mb-4 flex items-center gap-3 text-hydro">
-                  <span className="inline-block h-px w-10 bg-hydro" />
+                  <SplashMark className="h-3.5" />
                   Family owned. Florida proud.
                 </p>
               </Reveal>

@@ -1,17 +1,26 @@
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 
 export default function Testimonial() {
   return (
     <section className="relative overflow-hidden bg-foam py-24 text-abyss md:py-32">
-      {/* faint waterline behind quote */}
-      <svg
-        viewBox="0 0 1440 320"
-        preserveAspectRatio="none"
-        className="pointer-events-none absolute inset-x-0 top-1/2 h-64 w-full -translate-y-1/2 opacity-[0.05]"
+      {/* the real TM splash as a watermark ornament */}
+      <Image
+        src="/images/logo-mark.png"
+        alt=""
+        width={560}
+        height={280}
         aria-hidden="true"
-      >
-        <path d="M0 160 C 240 60, 480 260, 720 160 C 960 60, 1200 260, 1440 160" stroke="#105089" strokeWidth="40" fill="none" strokeLinecap="round" />
-      </svg>
+        className="pointer-events-none absolute -right-16 top-10 w-72 -rotate-12 opacity-[0.07] md:w-[26rem]"
+      />
+      <Image
+        src="/images/logo-mark.png"
+        alt=""
+        width={400}
+        height={200}
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-20 bottom-8 w-56 rotate-[168deg] opacity-[0.05] md:w-80"
+      />
 
       <div className="relative mx-auto max-w-4xl px-5 text-center md:px-8">
         <Reveal>
@@ -32,6 +41,16 @@ export default function Testimonial() {
         </Reveal>
         <Reveal delay={0.2}>
           <p className="label mt-8 text-brand">— Proud Property Owner, Lake County</p>
+        </Reveal>
+        <Reveal delay={0.3}>
+          {/* the company's actual light-background lockup, contact info and all */}
+          <Image
+            src="/images/logo-alt.png"
+            alt="TM Home Detailz — tmhomedetailz@gmail.com · 352-602-9854"
+            width={480}
+            height={98}
+            className="mx-auto mt-12 h-auto w-64 opacity-85 md:w-80"
+          />
         </Reveal>
       </div>
     </section>
