@@ -31,36 +31,36 @@ export default function FleetSection() {
         <div className="sticky top-0 flex h-svh flex-col justify-center">
           <motion.h2
             style={{ x: typeX }}
-            className="display whitespace-nowrap text-[clamp(2.6rem,13vw,11rem)] leading-none text-foam"
+            className="display whitespace-nowrap px-5 text-[clamp(2.2rem,10.5vw,11rem)] leading-none text-foam md:px-0"
             aria-label="Fleets. Rigs. Heavy iron."
           >
-            <span className="ml-[5vw] block">
+            <span className="block md:ml-[5vw]">
               <Surface>Fleets. Rigs.</Surface>
             </span>
-            <span className="ml-[11vw] block text-hydro md:ml-[14vw]">
+            <span className="block text-hydro md:ml-[14vw]">
               <Surface delay={0.12}>Heavy iron.</Surface>
             </span>
           </motion.h2>
 
           <div className="mx-auto mt-10 flex w-full max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-end md:justify-between md:px-8">
             <Reveal delay={0.2} className="max-w-md">
-              <p className="text-base leading-relaxed text-mist md:text-lg">
+              <p className="text-base leading-relaxed text-foam/95 [text-shadow:0_1px_14px_rgba(4,18,31,0.9)] md:text-lg">
                 Two-step chemistry, hand washing, and hot water — on your yard, on your
                 schedule. From a single box truck to the whole fleet, we keep your name
                 clean everywhere it drives.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                 <Link
                   href="/services/fleet-washing"
-                  className="label sheen inline-flex items-center gap-2 rounded-full border border-spray/40 px-7 py-3.5 text-foam transition-colors hover:border-hydro hover:text-hydro"
+                  className="label sheen inline-flex items-center justify-center gap-2 rounded-full border border-spray/60 bg-abyss/55 px-7 py-4 text-foam backdrop-blur-sm transition-colors hover:border-hydro hover:text-hydro"
                 >
                   Fleet Washing
                 </Link>
                 <Link
                   href="/services/heavy-equipment"
-                  className="label sheen inline-flex items-center gap-2 rounded-full border border-spray/40 px-7 py-3.5 text-foam transition-colors hover:border-hydro hover:text-hydro"
+                  className="label sheen inline-flex items-center justify-center gap-2 rounded-full border border-spray/60 bg-abyss/55 px-7 py-4 text-foam backdrop-blur-sm transition-colors hover:border-hydro hover:text-hydro"
                 >
                   Heavy Equipment
                 </Link>

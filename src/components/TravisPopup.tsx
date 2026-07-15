@@ -27,11 +27,13 @@ export default function TravisPopup() {
       setOpen(true);
     };
 
-    const timer = window.setTimeout(show, 14000);
+    // A) they scroll past the hero, or B) 10s on the landing view without scrolling
     const onScroll = () => {
-      const p = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
-      if (p > 0.35) show();
+      if (window.scrollY > window.innerHeight * 0.9) show();
     };
+    const timer = window.setTimeout(() => {
+      if (window.scrollY < 80) show();
+    }, 10000);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.clearTimeout(timer);
@@ -53,7 +55,7 @@ export default function TravisPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[70] flex items-end justify-center bg-abyss/60 p-4 backdrop-blur-md sm:items-center"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-abyss/60 p-4 backdrop-blur-md"
           onClick={() => setOpen(false)}
           role="dialog"
           aria-modal="true"
@@ -64,7 +66,7 @@ export default function TravisPopup() {
             animate={{ y: 0, scale: 1, rotate: 0 }}
             exit={{ y: 56, opacity: 0 }}
             transition={{ type: "spring", stiffness: 240, damping: 24 }}
-            className="relative w-full max-w-[26rem] overflow-hidden rounded-[1.75rem] bg-white shadow-[0_48px_120px_-24px_rgba(4,18,31,0.85)]"
+            className="relative max-h-[92svh] w-full max-w-[26rem] overflow-hidden overflow-y-auto rounded-[1.75rem] bg-white shadow-[0_48px_120px_-24px_rgba(4,18,31,0.85)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Travis, cut on the wand angle */}
@@ -157,9 +159,12 @@ export default function TravisPopup() {
                   </span>
                 </a>
               </div>
-              <p className="mt-4 text-center text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-slate/70">
-                Family owned · Lake County FL
-              </p>
+              <button
+                onClick={() => setOpen(false)}
+                className="mt-3 w-full py-2 text-center text-xs font-semibold text-slate/80 underline-offset-4 transition-colors hover:text-slate hover:underline"
+              >
+                No thanks — just looking around
+              </button>
             </div>
 
             {/* grime layer that gets washed off on arrival */}
@@ -196,10 +201,10 @@ export default function TravisPopup() {
             <button
               onClick={() => setOpen(false)}
               aria-label="Close"
-              className="absolute right-3 top-3 z-10 grid h-9 w-9 place-items-center rounded-full bg-abyss/50 text-foam backdrop-blur-sm transition-colors hover:bg-abyss/80"
+              className="absolute right-2.5 top-2.5 z-10 grid h-11 w-11 place-items-center rounded-full bg-abyss/60 text-foam backdrop-blur-sm transition-all hover:scale-105 hover:bg-abyss/85"
             >
-              <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M2 2l10 10M12 2 2 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M2 2l10 10M12 2 2 12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
               </svg>
             </button>
           </motion.div>

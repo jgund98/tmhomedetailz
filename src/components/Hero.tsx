@@ -137,7 +137,9 @@ export default function Hero() {
             className="label mb-6 mt-2 flex items-center gap-3 text-spray"
           >
             <SplashMark className="h-3.5" />
-            Residential &amp; Commercial · Lake County, FL
+            <span>
+              Residential &amp; Commercial · <span className="whitespace-nowrap">Lake County, FL</span>
+            </span>
           </motion.p>
 
           <h1 className="display text-[clamp(2.7rem,10.5vw,4rem)] md:text-[clamp(2.6rem,5vw,5rem)]">
@@ -159,12 +161,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-9 flex flex-wrap items-center gap-5"
+            className="mt-9 flex flex-col items-stretch gap-4 md:flex-row md:flex-wrap md:items-center md:gap-5"
           >
             <JetButton href="/contact">Get My Free Quote</JetButton>
-            <a href="#proof" className="label group flex items-center gap-3 text-foam/85 transition-colors hover:text-hydro">
+            {/* full button on mobile, quiet link on desktop */}
+            <a
+              href="#proof"
+              className="label group flex items-center justify-center gap-3 rounded-full border border-foam/30 px-8 py-4 text-foam/90 transition-colors hover:border-hydro hover:text-hydro md:border-0 md:px-0 md:py-0 md:text-foam/85"
+            >
               See the proof
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-foam/25 transition-all duration-300 group-hover:translate-y-1 group-hover:border-hydro">
+              <span className="grid h-6 w-6 place-items-center rounded-full transition-all duration-300 group-hover:translate-y-1 md:h-10 md:w-10 md:border md:border-foam/25 md:group-hover:border-hydro">
                 <svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M8 2v11M3 9l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>

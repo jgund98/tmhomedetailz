@@ -96,13 +96,16 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="mt-10 flex items-end justify-between gap-6">
+                  <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                      <p className="script text-4xl text-brand md:text-5xl">Travis Moss</p>
-                      <p className="label mt-2 text-slate">Owner · TM Home Detailz</p>
+                      <p className="script whitespace-nowrap text-4xl text-brand md:text-5xl">Travis Moss</p>
+                      <p className="label mt-2 whitespace-nowrap text-[0.6rem] text-slate">Owner · TM Home Detailz</p>
                     </div>
-                    <a href={SITE.smsHref} className="label shrink-0 rounded-full border border-brand/25 px-5 py-3 text-brand transition-colors hover:border-hydro hover:text-hydro">
-                      Text me · {SITE.phone}
+                    <a
+                      href={SITE.smsHref}
+                      className="label shrink-0 rounded-full border border-brand/25 px-5 py-3.5 text-center text-brand transition-colors hover:border-hydro hover:text-hydro"
+                    >
+                      <span className="whitespace-nowrap">Text me · {SITE.phone}</span>
                     </a>
                   </div>
                 </div>
@@ -113,7 +116,7 @@ export default function AboutPage() {
                 <div className="mt-6 flex items-center gap-5 rounded-3xl bg-trench p-6 md:p-7">
                   <Image src="/images/logo-white.png" alt="The TM Home Detailz logo" width={80} height={80} className="h-16 w-16 shrink-0 md:h-20 md:w-20" />
                   <p className="text-sm leading-relaxed text-mist">
-                    <span className="label mb-1.5 block text-spray">Family credit where it&apos;s due</span>
+                    <span className="label mb-1.5 block text-spray">Credit where it&apos;s&nbsp;due</span>
                     The mark, the colors, the truck wrap — that&apos;s my wife&apos;s work. She
                     builds the brand; I keep the promise it makes.
                   </p>
