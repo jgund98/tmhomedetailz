@@ -1,27 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
 import { SITE } from "@/lib/site";
 
-/* Closing CTA over real footage: sunlit spray, slowed to a shimmer. */
+/* Closing CTA over real footage: sunlit spray, slowed to a shimmer.
+   The video only mounts (and downloads) once the section approaches. */
 export default function CtaBand() {
+  const ref = useRef<HTMLElement>(null);
+  const near = useInView(ref, { once: true, margin: "600px 0px" });
+
   return (
-    <section className="relative overflow-hidden bg-abyss py-28 md:py-36">
+    <section ref={ref} className="relative overflow-hidden bg-abyss py-28 md:py-36">
       {/* sunlit mist footage */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 h-full w-full object-cover opacity-45"
-        aria-hidden="true"
-      >
-        <source src="/videos/spray-sun.mp4" type="video/mp4" />
-      </video>
+      {near && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+          aria-hidden="true"
+        >
+          <source src="/videos/spray-sun.mp4" type="video/mp4" />
+        </video>
+      )}
       <div className="absolute inset-0 bg-gradient-to-b from-abyss via-abyss/60 to-abyss" aria-hidden="true" />
 
       {/* real splash, ghosted behind the ask */}

@@ -47,6 +47,10 @@ body {
   line-height: 0.92;
 }
 
+.script {
+  font-family: var(--font-caveat), cursive;
+}
+
 .label {
   font-family: var(--font-display);
   font-weight: 700;

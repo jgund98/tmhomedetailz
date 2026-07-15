@@ -38,11 +38,12 @@ export default function Footer() {
                   {SITE.email}
                 </a>
               </div>
-              <div className="mt-6 flex gap-5">
+              <div className="mt-6 flex flex-wrap gap-5">
                 {[
                   { href: SITE.facebook, label: "Facebook" },
                   { href: SITE.instagram, label: "Instagram" },
                   { href: SITE.tiktok, label: "TikTok" },
+                  { href: SITE.google, label: "5.0★ on Google" },
                 ].map((s) => (
                   <a
                     key={s.label}

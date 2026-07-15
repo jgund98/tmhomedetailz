@@ -42,6 +42,23 @@ export default function Testimonial() {
         <Reveal delay={0.2}>
           <p className="label mt-8 text-brand">— Proud Property Owner, Lake County</p>
         </Reveal>
+        <Reveal delay={0.25}>
+          <a
+            href="https://www.google.com/search?q=TM+Home+Detailz+pressure+washing+Lake+County+FL"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-2.5 rounded-full border border-brand/20 px-5 py-2.5 transition-colors hover:border-hydro"
+          >
+            <span className="flex gap-0.5" aria-hidden="true">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="#fbbc04">
+                  <path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z" />
+                </svg>
+              ))}
+            </span>
+            <span className="text-xs font-bold text-ink">5.0 on Google · 17 reviews</span>
+          </a>
+        </Reveal>
         <Reveal delay={0.3}>
           {/* the company's actual light-background lockup, contact info and all */}
           <Image

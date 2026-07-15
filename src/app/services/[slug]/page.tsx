@@ -6,7 +6,8 @@ import PageHero from "@/components/PageHero";
 import CtaBand from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
-import { SERVICES } from "@/lib/site";
+import SplashMark from "@/components/SplashMark";
+import { SERVICES, SITE } from "@/lib/site";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -16,7 +17,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const s = SERVICES.find((x) => x.slug === slug);
   if (!s) return {};
-  return { title: s.name, description: s.short };
+  return {
+    title: `${s.name} in Lake County & Central Florida`,
+    description: `${s.short} Serving Clermont, Leesburg, Mount Dora, The Villages & greater Orlando. 5.0★ on Google — free quotes: 352-602-9854.`,
+    alternates: { canonical: `/services/${s.slug}` },
+    openGraph: { title: `${s.name} — TM Home Detailz`, description: s.short, images: [s.image] },
+  };
 }
 
 export default async function ServicePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -47,6 +53,33 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                     </div>
                   </Reveal>
                 ))}
+              </div>
+
+              {/* FAQs — the questions people actually search */}
+              <div className="mt-16">
+                <Reveal>
+                  <p className="label mb-6 flex items-center gap-3 text-brand">
+                    <SplashMark className="h-3.5" />
+                    Straight answers
+                  </p>
+                </Reveal>
+                <div className="flex flex-col gap-4">
+                  {s.faqs.map((f, i) => (
+                    <Reveal key={f.q} delay={i * 0.05}>
+                      <details className="group rounded-2xl border border-brand/15 bg-white px-6 py-5 shadow-[0_12px_32px_-22px_rgba(13,37,55,0.35)] open:border-hydro/40">
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-ink [&::-webkit-details-marker]:hidden">
+                          {f.q}
+                          <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full border border-brand/20 text-brand transition-transform duration-300 group-open:rotate-45">
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                              <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                            </svg>
+                          </span>
+                        </summary>
+                        <p className="mt-4 text-sm leading-relaxed text-slate">{f.a}</p>
+                      </details>
+                    </Reveal>
+                  ))}
+                </div>
               </div>
 
               <Reveal delay={0.1}>
@@ -99,6 +132,44 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       <CtaBand />
+
+      {/* Service + FAQ + breadcrumb structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Service",
+              name: s.name,
+              serviceType: s.name,
+              description: s.intro,
+              url: `${SITE.url}/services/${s.slug}`,
+              image: `${SITE.url}${s.image}`,
+              provider: { "@id": `${SITE.url}/#business` },
+              areaServed: { "@type": "State", name: "Florida" },
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: s.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
+                { "@type": "ListItem", position: 2, name: "Services", item: `${SITE.url}/services` },
+                { "@type": "ListItem", position: 3, name: s.name, item: `${SITE.url}/services/${s.slug}` },
+              ],
+            },
+          ]),
+        }}
+      />
     </>
   );
 }

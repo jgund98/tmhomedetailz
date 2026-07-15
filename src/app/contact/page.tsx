@@ -5,9 +5,10 @@ import { Reveal } from "@/components/Reveal";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Get a Free Quote",
+  title: "Free Pressure Washing Quote — Lake County FL",
   description:
-    "Request a free pressure washing quote from TM Home Detailz — homes, businesses, fleets, and heavy equipment across Lake County, Florida.",
+    "Get a free pressure washing quote in Lake County & Central Florida. Homes, driveways, roofs, businesses, fleets. Call or text 352-602-9854 — most quotes same day.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

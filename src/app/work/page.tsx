@@ -6,12 +6,14 @@ import CtaBand from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Our Work",
+  title: "Before & After — Pressure Washing Results in Central Florida",
   description:
-    "Real before-and-after results from TM Home Detailz — commercial pressure washing, fleet washing, and surface cleaning across Lake County, Florida.",
+    "Real before-and-after pressure washing results from TM Home Detailz: driveways, homes, storefronts, fleets and heavy equipment across Lake County and greater Orlando.",
+  alternates: { canonical: "/work" },
 };
 
 const SHOTS = [
+  { src: "/images/truck-rig-field.jpg", alt: "TM Home Detailz truck and trailer rig with Travis", label: "The rig, ready to roll", tall: true },
   { src: "/images/fleet.jpg", alt: "Semi truck mid-wash, fully foamed", label: "Fleet wash — two-step foam", tall: true },
   { src: "/images/equipment.jpg", alt: "TPO roof cleaning at sunrise", label: "Commercial TPO roof — sunrise pass", tall: true },
   { src: "/images/roof.jpg", alt: "Storefront washing from a boom lift", label: "New-construction storefront wash", tall: true },

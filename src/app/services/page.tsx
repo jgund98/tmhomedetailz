@@ -7,9 +7,10 @@ import { Reveal } from "@/components/Reveal";
 import { SERVICES } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Pressure Washing Services — Lake County & Central Florida",
   description:
-    "Commercial exterior cleaning, fleet washing, heavy equipment cleaning, surface cleaning, roof washing, and hot water sanitation across Lake County, Florida.",
+    "Driveway & surface cleaning, house soft washing, roof cleaning, commercial exteriors, hot water sanitation, fleet washing, and heavy equipment cleaning across Lake County and greater Orlando. Free quotes: 352-602-9854.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

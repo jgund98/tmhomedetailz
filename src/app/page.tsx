@@ -7,7 +7,7 @@ import FleetSection from "@/components/FleetSection";
 import BeforeAfter from "@/components/BeforeAfter";
 import Testimonial from "@/components/Testimonial";
 import AreaRipple from "@/components/AreaRipple";
-import SocialReel from "@/components/SocialReel";
+import FieldTV from "@/components/FieldTV";
 import CtaBand from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
@@ -18,6 +18,7 @@ export default function Home() {
     <>
       <Hero />
       <GrimeCanvas />
+      <FieldTV />
       <ServiceFlood />
       <FleetSection />
 
@@ -72,17 +73,19 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 md:px-8">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <Reveal className="relative">
-              <div className="relative aspect-[4/5] max-w-md overflow-hidden rounded-2xl border border-hydro/15">
-                <Image
-                  src="/images/travis.jpg"
-                  alt="Travis Moss, founder of TM Home Detailz, beside his rig"
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-abyss/85 to-transparent p-6">
-                  <p className="display text-xl text-foam">Travis Moss</p>
-                  <p className="label mt-1 text-spray">Founder · Lake County native</p>
+              <div className="flex flex-col gap-5">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-hydro/15">
+                  <Image
+                    src="/images/truck-rig-field.jpg"
+                    alt="The TM Home Detailz truck and trailer rig with Travis Moss"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-abyss/85 to-transparent p-5">
+                    <p className="display text-lg text-foam">Travis Moss &amp; the rig</p>
+                    <p className="label mt-1 text-spray">Founder · Lake County native</p>
+                  </div>
                 </div>
               </div>
             </Reveal>
@@ -119,7 +122,6 @@ export default function Home() {
       </section>
 
       <AreaRipple />
-      <SocialReel />
       <CtaBand />
     </>
   );
