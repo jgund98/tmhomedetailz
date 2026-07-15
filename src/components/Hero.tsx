@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import PowerWash from "@/components/PowerWash";
 import JetButton from "@/components/JetButton";
@@ -13,8 +13,6 @@ import { SITE, CITIES } from "@/lib/site";
    its color back. The headline still washes itself clean on load. */
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const fade = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
   // mount only the video for the active breakpoint — a display:none video still downloads
   const [desktop, setDesktop] = useState<boolean | null>(null);
   useEffect(() => {
@@ -115,10 +113,7 @@ export default function Hero() {
       </div>
 
       {/* ---------- content ---------- */}
-      <motion.div
-        style={{ opacity: fade }}
-        className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-5 pb-24 pt-32 md:px-8 md:pb-16 md:pt-36"
-      >
+      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-5 pb-24 pt-32 md:px-8 md:pb-16 md:pt-36">
         <div className="md:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -154,7 +149,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.5 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
             className="mt-7 max-w-md text-base leading-relaxed text-mist md:text-lg"
           >
             Driveways, homes, storefronts, and whole fleets — washed hot, washed right, and photographed to prove it.
@@ -163,7 +158,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.75 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-9 flex flex-wrap items-center gap-5"
           >
             <JetButton href="/contact">Get My Free Quote</JetButton>
@@ -184,7 +179,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.0 }}
+            transition={{ duration: 0.8, delay: 0.85 }}
             className="mt-9 inline-flex items-center gap-3 rounded-full border border-foam/15 bg-abyss/40 py-2.5 pl-3.5 pr-5 backdrop-blur-sm transition-colors hover:border-hydro/50"
           >
             <span className="flex gap-0.5" aria-hidden="true">
@@ -200,13 +195,13 @@ export default function Hero() {
             </span>
           </motion.a>
         </div>
-      </motion.div>
+      </div>
 
       {/* the whole service area drifts by — you'll spot your town before you scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 3.2 }}
+        transition={{ duration: 0.8, delay: 0.9 }}
         className="relative z-10 border-t border-foam/10 bg-abyss/60 backdrop-blur-md"
         aria-label={`Proudly serving ${CITIES.join(", ")} and beyond`}
       >
