@@ -12,7 +12,6 @@ import { SITE } from "@/lib/site";
 export default function TravisPopup() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [washed, setWashed] = useState(false);
   const shownRef = useRef(false);
 
   useEffect(() => {
@@ -62,10 +61,10 @@ export default function TravisPopup() {
           aria-label="A note from the owner"
         >
           <motion.div
-            initial={{ y: 56, scale: 0.94, rotate: -1 }}
-            animate={{ y: 0, scale: 1, rotate: 0 }}
-            exit={{ y: 56, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 240, damping: 24 }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="no-scrollbar relative max-h-[92svh] w-full max-w-[26rem] overflow-hidden overflow-y-auto rounded-[1.75rem] bg-white shadow-[0_48px_120px_-24px_rgba(4,18,31,0.85)]"
             onClick={(e) => e.stopPropagation()}
           >
@@ -161,37 +160,6 @@ export default function TravisPopup() {
                 No thanks — just looking around
               </button>
             </div>
-
-            {/* grime layer that gets washed off on arrival */}
-            {!washed && (
-              <motion.div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0"
-                initial={{ clipPath: "inset(0 0% 0 0)" }}
-                animate={{ clipPath: "inset(0 0 0 100%)" }}
-                transition={{ duration: 1.15, delay: 0.45, ease: [0.65, 0, 0.35, 1] }}
-                onAnimationComplete={() => setWashed(true)}
-                style={{
-                  background:
-                    "linear-gradient(150deg,#57503c 0%,#6b6350 26%,#4a4232 52%,#5e5744 76%,#4d4534 100%)",
-                }}
-              >
-                <span className="absolute inset-0 opacity-30 [background-image:radial-gradient(circle_at_25%_30%,rgba(0,0,0,0.35)_0,transparent_35%),radial-gradient(circle_at_70%_60%,rgba(0,0,0,0.3)_0,transparent_30%),radial-gradient(circle_at_45%_85%,rgba(0,0,0,0.35)_0,transparent_25%)]" />
-              </motion.div>
-            )}
-            {!washed && (
-              <motion.span
-                aria-hidden="true"
-                className="pointer-events-none absolute bottom-[-8%] top-[-8%] w-1 rounded-full"
-                initial={{ left: "0%", opacity: 0 }}
-                animate={{ left: "100%", opacity: [0, 1, 1, 0] }}
-                transition={{ duration: 1.15, delay: 0.45, ease: [0.65, 0, 0.35, 1], opacity: { times: [0, 0.1, 0.9, 1], duration: 1.2, delay: 0.45 } }}
-                style={{
-                  background: "linear-gradient(180deg, rgba(255,255,255,0.95), rgba(2,171,223,0.85))",
-                  boxShadow: "0 0 20px 5px rgba(2,171,223,0.6)",
-                }}
-              />
-            )}
 
             <button
               onClick={() => setOpen(false)}
