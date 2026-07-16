@@ -57,7 +57,18 @@ export default function Nav() {
         }`}
       >
         {/* the real lockup, exactly as the brand kit draws it */}
-        <Link href="/" className="group flex shrink-0 items-center" aria-label="TM Home Detailz home">
+        <Link
+          href="/"
+          onClick={(e) => {
+            // already on home? just glide back to the top
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+          className="group flex shrink-0 items-center"
+          aria-label="TM Home Detailz home"
+        >
           <Image
             src="/images/logo-main.png"
             alt="TM Home Detailz — tmhomedetailz@gmail.com · 352-602-9854"
