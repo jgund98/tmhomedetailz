@@ -16,7 +16,9 @@ export default function Footer() {
       </div>
 
       <div className="bg-trench">
-        <div className="mx-auto max-w-7xl px-5 pb-10 pt-16 md:px-8">
+        {/* extra bottom clearance below lg so the fixed mobile CTA dock never
+            covers the copyright / credit row — you can scroll fully to the end */}
+        <div className="mx-auto max-w-7xl px-5 pb-[calc(6.5rem+env(safe-area-inset-bottom))] pt-16 md:px-8 lg:pb-10">
           <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr] lg:gap-20">
             <div>
               <div>
