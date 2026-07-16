@@ -25,10 +25,9 @@ export default function ServiceFlood() {
               </p>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="display text-4xl md:text-6xl">
-                Seven ways we earn
-                <br />
-                the name <span className="text-hydro">Detailz.</span>
+              <h2 className="display text-[1.75rem] leading-[1.05] sm:text-4xl md:text-6xl">
+                <span className="block">Seven ways we earn</span>
+                <span className="block">the name <span className="text-hydro">Detailz.</span></span>
               </h2>
             </Reveal>
           </div>
