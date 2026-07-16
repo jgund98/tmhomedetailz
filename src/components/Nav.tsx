@@ -40,9 +40,17 @@ export default function Nav() {
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
           ? "border-b border-hydro/15 bg-abyss/92 shadow-[0_8px_32px_rgba(4,18,31,0.35)] backdrop-blur-xl"
-          : "border-b border-foam/[0.06] bg-gradient-to-b from-abyss/95 via-abyss/65 to-abyss/0"
+          : "border-b border-transparent"
       }`}
     >
+      {/* fresh-load scrim: fades to transparent BELOW the header, so there's no
+          hard edge/line over the hero video — only the scrolled bar has an edge */}
+      {!scrolled && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[220%] bg-gradient-to-b from-abyss/90 via-abyss/45 to-transparent"
+        />
+      )}
       <div
         className={`mx-auto flex max-w-[90rem] items-center justify-between gap-6 px-5 transition-all duration-500 md:px-8 ${
           scrolled ? "py-3" : "py-4 md:py-5"

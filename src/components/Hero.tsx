@@ -11,7 +11,7 @@ import { SITE, CITIES, HERO_MEDIA } from "@/lib/site";
 /* Hero: the screen is split by a pressure jet on the wand angle from the TM
    logo. Left, the pitch; right, live footage of a Florida pool deck getting
    its color back. The headline still washes itself clean on load. */
-export default function Hero() {
+export default function Hero({ media = HERO_MEDIA }: { media?: typeof HERO_MEDIA }) {
   const ref = useRef<HTMLDivElement>(null);
   // mount only the video for the active breakpoint — a display:none video still downloads
   const [desktop, setDesktop] = useState<boolean | null>(null);
@@ -23,20 +23,11 @@ export default function Hero() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
-  // the jet-seam line only appears once the visitor starts scrolling
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
     <section ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-abyss">
       {/* ---------- mobile backdrop: the pool-deck footage under water glass ---------- */}
       <div className="absolute inset-0 md:hidden" aria-hidden="true">
-        <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover" style={{ objectPosition: HERO_MEDIA.posMobile }} sizes="100vw" />
+        <Image src={media.poster} alt="" fill priority className="object-cover" style={{ objectPosition: media.posMobile }} sizes="100vw" />
         {desktop === false && (
           <video
             autoPlay
@@ -44,11 +35,11 @@ export default function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster={HERO_MEDIA.poster}
+            poster={media.poster}
             className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: HERO_MEDIA.posMobile }}
+            style={{ objectPosition: media.posMobile }}
           >
-            <source src={HERO_MEDIA.video} type="video/mp4" />
+            <source src={media.video} type="video/mp4" />
           </video>
         )}
         <div className="absolute inset-0 bg-abyss/55" />
@@ -59,7 +50,7 @@ export default function Hero() {
       <div className="absolute inset-y-0 right-0 hidden w-[57%] md:block" aria-hidden="true">
         <div className="absolute inset-y-0 -right-40 left-0 origin-top-left skew-x-[7deg] overflow-hidden">
           <div className="absolute -inset-x-24 inset-y-0 origin-top-left -skew-x-[7deg]">
-            <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover" style={{ objectPosition: HERO_MEDIA.posDesktop }} sizes="60vw" />
+            <Image src={media.poster} alt="" fill priority className="object-cover" style={{ objectPosition: media.posDesktop }} sizes="60vw" />
             {desktop === true && (
               <video
                 autoPlay
@@ -67,11 +58,11 @@ export default function Hero() {
                 loop
                 playsInline
                 preload="metadata"
-                poster={HERO_MEDIA.poster}
+                poster={media.poster}
                 className="absolute inset-0 h-full w-full object-cover"
-                style={{ objectPosition: HERO_MEDIA.posDesktop }}
+                style={{ objectPosition: media.posDesktop }}
               >
-                <source src={HERO_MEDIA.video} type="video/mp4" />
+                <source src={media.video} type="video/mp4" />
               </video>
             )}
           </div>
@@ -79,12 +70,8 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-abyss/45 via-transparent to-transparent" />
         </div>
 
-        {/* the jet riding the cut — hidden on fresh load, fades in once scrolling starts */}
-        <div
-          className={`absolute inset-y-0 left-0 origin-top-left skew-x-[7deg] transition-opacity duration-700 ${
-            scrolled ? "opacity-100" : "opacity-0"
-          }`}
-        >
+        {/* the jet riding the cut */}
+        <div className="absolute inset-y-0 left-0 origin-top-left skew-x-[7deg]">
           <div
             className="absolute inset-y-0 -left-[2px] w-[3px]"
             style={{
