@@ -133,7 +133,7 @@ export default function FieldTV() {
             </button>
 
             {/* the main screen */}
-            <div className="relative z-10 w-full max-w-[240px] shrink-0 sm:max-w-[300px] md:max-w-[340px]">
+            <div className="relative z-10 w-full max-w-[272px] shrink-0 sm:max-w-[300px] md:max-w-[340px]">
               <div
                 className="relative overflow-hidden rounded-[2rem] border-2 border-foam/20 bg-trench shadow-[0_40px_90px_-30px_rgba(2,171,223,0.35)]"
                 style={{ aspectRatio: "9/16" }}
@@ -179,7 +179,8 @@ export default function FieldTV() {
                 <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center gap-2 bg-gradient-to-b from-abyss/75 to-transparent p-4">
                   <Image src="/images/logo-white.png" alt="" width={28} height={28} className="h-7 w-7" />
                   <span className="text-[0.65rem] font-bold tracking-wider text-foam">@tmhomedetailz</span>
-                  <span className="label ml-auto rounded-full bg-hydro/90 px-2.5 py-1 text-[0.5rem] text-abyss">{clip.tag}</span>
+                  {/* tag pill would clip the rounded corner on narrow mobile — desktop only */}
+                  <span className="label ml-auto hidden rounded-full bg-hydro/90 px-2.5 py-1 text-[0.5rem] text-abyss sm:inline-block">{clip.tag}</span>
                 </div>
 
                 {/* caption + sound state */}
