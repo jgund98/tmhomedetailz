@@ -199,8 +199,11 @@ export const CITIES = [
             /videos/hero-alt-2.mp4 (bench + rolling mist)
    Each has a matching poster: same name with -poster.jpg under /images. */
 export const HERO_MEDIA = {
-  video: "/videos/hero-wash.mp4",
-  poster: "/images/hero-wash-poster.jpg",
+  video: "/videos/hero-alt-1.mp4",
+  poster: "/images/hero-alt-1-poster.jpg",
+  // object-position bias for the desktop jet-cut panel + mobile backdrop
+  posDesktop: "62% 60%",
+  posMobile: "68% center",
 };
 
 export const STATS = [

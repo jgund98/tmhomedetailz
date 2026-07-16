@@ -23,11 +23,20 @@ export default function Hero() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  // the jet-seam line only appears once the visitor starts scrolling
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <section ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-abyss">
       {/* ---------- mobile backdrop: the pool-deck footage under water glass ---------- */}
       <div className="absolute inset-0 md:hidden" aria-hidden="true">
-        <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover object-[62%_center]" sizes="100vw" />
+        <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover" style={{ objectPosition: HERO_MEDIA.posMobile }} sizes="100vw" />
         {desktop === false && (
           <video
             autoPlay
@@ -36,7 +45,8 @@ export default function Hero() {
             playsInline
             preload="metadata"
             poster={HERO_MEDIA.poster}
-            className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: HERO_MEDIA.posMobile }}
           >
             <source src={HERO_MEDIA.video} type="video/mp4" />
           </video>
@@ -49,7 +59,7 @@ export default function Hero() {
       <div className="absolute inset-y-0 right-0 hidden w-[57%] md:block" aria-hidden="true">
         <div className="absolute inset-y-0 -right-40 left-0 origin-top-left skew-x-[7deg] overflow-hidden">
           <div className="absolute -inset-x-24 inset-y-0 origin-top-left -skew-x-[7deg]">
-            <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover object-[45%_55%]" sizes="60vw" />
+            <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover" style={{ objectPosition: HERO_MEDIA.posDesktop }} sizes="60vw" />
             {desktop === true && (
               <video
                 autoPlay
@@ -58,7 +68,8 @@ export default function Hero() {
                 playsInline
                 preload="metadata"
                 poster={HERO_MEDIA.poster}
-                className="absolute inset-0 h-full w-full object-cover object-[45%_55%]"
+                className="absolute inset-0 h-full w-full object-cover"
+                style={{ objectPosition: HERO_MEDIA.posDesktop }}
               >
                 <source src={HERO_MEDIA.video} type="video/mp4" />
               </video>
@@ -68,8 +79,12 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-r from-abyss/45 via-transparent to-transparent" />
         </div>
 
-        {/* the jet riding the cut */}
-        <div className="absolute inset-y-0 left-0 origin-top-left skew-x-[7deg]">
+        {/* the jet riding the cut — hidden on fresh load, fades in once scrolling starts */}
+        <div
+          className={`absolute inset-y-0 left-0 origin-top-left skew-x-[7deg] transition-opacity duration-700 ${
+            scrolled ? "opacity-100" : "opacity-0"
+          }`}
+        >
           <div
             className="absolute inset-y-0 -left-[2px] w-[3px]"
             style={{
@@ -186,7 +201,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85 }}
-            className="mt-6 inline-flex items-center gap-3 self-start rounded-full border border-foam/15 bg-abyss/40 py-2.5 pl-3.5 pr-5 backdrop-blur-sm transition-colors hover:border-hydro/50 md:mt-9"
+            className="mt-4 inline-flex items-center gap-3 self-start rounded-full border border-foam/15 bg-abyss/40 py-2.5 pl-3.5 pr-5 backdrop-blur-sm transition-colors hover:border-hydro/50 md:mt-5"
           >
             <span className="flex gap-0.5" aria-hidden="true">
               {[...Array(5)].map((_, i) => (
