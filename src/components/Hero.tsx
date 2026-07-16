@@ -113,7 +113,7 @@ export default function Hero() {
       </div>
 
       {/* ---------- content ---------- */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-5 pb-24 pt-32 md:px-8 md:pb-16 md:pt-36">
+      <div className="relative z-10 mx-auto flex w-full max-w-[90rem] flex-1 flex-col justify-center px-5 pb-14 pt-24 md:px-8 md:pb-14 md:pt-28">
         <div className="md:max-w-[44%]">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
@@ -126,7 +126,7 @@ export default function Hero() {
               width={220}
               height={220}
               priority
-              className="h-24 w-24 drop-shadow-[0_6px_24px_rgba(2,171,223,0.4)] md:h-32 md:w-32"
+              className="h-16 w-16 drop-shadow-[0_6px_24px_rgba(2,171,223,0.4)] sm:h-20 sm:w-20 md:h-32 md:w-32"
             />
           </motion.div>
 
@@ -134,7 +134,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="label mb-6 mt-2 flex items-center gap-3 text-spray"
+            className="label mb-4 mt-2 flex items-center gap-3 text-spray md:mb-6"
           >
             <SplashMark className="h-3.5" />
             <span>
@@ -142,7 +142,7 @@ export default function Hero() {
             </span>
           </motion.p>
 
-          <h1 className="display text-[clamp(2.7rem,10.5vw,4rem)] md:text-[clamp(2.6rem,5vw,5rem)]">
+          <h1 className="display text-[clamp(2.3rem,9vw,3.6rem)] md:text-[clamp(2.6rem,5vw,5rem)]">
             <PowerWash text="THE DETAILZ" delay={0.5} duration={1.05} className="block" />
             <PowerWash text="MAKE THE" delay={1.15} duration={0.95} className="block" />
             <PowerWash text="DIFFERENCE." delay={1.8} duration={1.05} cleanClassName="text-hydro" className="block" />
@@ -152,7 +152,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55 }}
-            className="mt-7 max-w-md text-base leading-relaxed text-mist md:text-lg"
+            className="mt-5 max-w-md text-sm leading-relaxed text-mist sm:text-base md:mt-7 md:text-lg"
           >
             Driveways, homes, storefronts, and whole fleets — washed hot, washed right, and photographed to prove it.
           </motion.p>
@@ -161,7 +161,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-9 flex flex-col items-stretch gap-4 md:flex-row md:flex-wrap md:items-center md:gap-5"
+            className="mt-7 flex flex-col items-stretch gap-3 md:mt-9 md:flex-row md:flex-wrap md:items-center md:gap-5"
           >
             <JetButton href="/contact">Get My Free Quote</JetButton>
             {/* full button on mobile, quiet link on desktop */}
@@ -186,7 +186,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.85 }}
-            className="mt-9 inline-flex items-center gap-3 rounded-full border border-foam/15 bg-abyss/40 py-2.5 pl-3.5 pr-5 backdrop-blur-sm transition-colors hover:border-hydro/50"
+            className="mt-6 inline-flex items-center gap-3 self-start rounded-full border border-foam/15 bg-abyss/40 py-2.5 pl-3.5 pr-5 backdrop-blur-sm transition-colors hover:border-hydro/50 md:mt-9"
           >
             <span className="flex gap-0.5" aria-hidden="true">
               {[...Array(5)].map((_, i) => (

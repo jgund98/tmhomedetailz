@@ -8,6 +8,7 @@ import BeforeAfter from "@/components/BeforeAfter";
 import Testimonial from "@/components/Testimonial";
 import AreaRipple from "@/components/AreaRipple";
 import FieldTV from "@/components/FieldTV";
+import SocialStrip from "@/components/SocialStrip";
 import CtaBand from "@/components/CtaBand";
 import { Reveal } from "@/components/Reveal";
 import JetButton from "@/components/JetButton";
@@ -122,6 +123,7 @@ export default function Home() {
       </section>
 
       <AreaRipple />
+      <SocialStrip />
       <CtaBand />
     </>
   );

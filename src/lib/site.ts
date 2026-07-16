@@ -206,7 +206,7 @@ export const FIELD_CLIPS = [
     id: "driveway",
     src: "/videos/field-driveway.mp4",
     poster: "/images/field-driveway.jpg",
-    label: "Residential rig, driveway day",
+    label: "House exterior soft wash",
     tag: "Residential",
   },
   {

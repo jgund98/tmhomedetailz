@@ -44,7 +44,7 @@ export default function FleetSection() {
 
           <div className="mx-auto mt-10 flex w-full max-w-7xl flex-col gap-8 px-5 md:flex-row md:items-end md:justify-between md:px-8">
             <Reveal delay={0.2} className="max-w-md">
-              <p className="text-base leading-relaxed text-foam/95 [text-shadow:0_1px_14px_rgba(4,18,31,0.9)] md:text-lg">
+              <p className="rounded-2xl border border-foam/10 bg-abyss/55 p-5 text-base leading-relaxed text-foam shadow-[0_16px_40px_-16px_rgba(4,18,31,0.8)] backdrop-blur-md md:text-lg">
                 Two-step chemistry, hand washing, and hot water — on your yard, on your
                 schedule. From a single box truck to the whole fleet, we keep your name
                 clean everywhere it drives.

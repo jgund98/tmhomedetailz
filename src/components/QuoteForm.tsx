@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SITE } from "@/lib/site";
 
@@ -50,6 +50,7 @@ export default function QuoteForm() {
   const [sent, setSent] = useState(false);
   const [property, setProperty] = useState("Residential");
   const [services, setServices] = useState<string[]>([]);
+  const wrapRef = useRef<HTMLDivElement>(null);
   const active = PROPERTY_TYPES.find((p) => p.key === property)!;
 
   const pickProperty = (key: string) => {
@@ -69,10 +70,14 @@ export default function QuoteForm() {
       `Free quote request — ${fd.get("name")}`
     )}&body=${body}`;
     setSent(true);
+    // bring the confirmation into view on any screen
+    requestAnimationFrame(() =>
+      wrapRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
+    );
   };
 
   return (
-    <div className="relative">
+    <div ref={wrapRef} className="relative scroll-mt-28">
       <AnimatePresence mode="wait">
         {sent ? (
           <motion.div
@@ -91,16 +96,31 @@ export default function QuoteForm() {
                 <path d="m4.5 12.5 5 5 10-11" stroke="#0a2338" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </motion.div>
-            <p className="display text-3xl text-ink">Request launched.</p>
+            <p className="display text-3xl text-ink">Thanks — we&apos;ve got it.</p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-slate">
-              Your email app should be open with everything filled in — hit send and
-              we&apos;ll get back fast. Prefer to talk?{" "}
-              <a href={SITE.phoneHref} className="font-semibold text-brand underline underline-offset-4">
-                Call or text {SITE.phone}
-              </a>
-              .
+              Travis or a member of the team will reach out shortly with your custom
+              quote — usually the same day. Want it handled even faster?
             </p>
-            <button onClick={() => setSent(false)} className="label mt-8 text-slate transition-colors hover:text-brand">
+            <a
+              href={SITE.phoneHref}
+              className="mt-6 flex items-center gap-3 rounded-full border border-brand/25 py-3 pl-3 pr-6 transition-colors hover:border-hydro"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-hydro text-abyss">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path
+                    d="M5 4h4l1.5 4.5-2 1.5a12 12 0 0 0 5.5 5.5l1.5-2L20 15v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span className="text-left leading-none">
+                <span className="block text-[0.58rem] font-bold uppercase tracking-[0.22em] text-slate">Call or text direct</span>
+                <span className="display mt-1 block text-lg text-ink">{SITE.phone}</span>
+              </span>
+            </a>
+            <button onClick={() => setSent(false)} className="label mt-6 text-slate transition-colors hover:text-brand">
               ← Back to the form
             </button>
           </motion.div>
