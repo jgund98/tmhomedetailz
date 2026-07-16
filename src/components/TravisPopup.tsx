@@ -66,7 +66,7 @@ export default function TravisPopup() {
             animate={{ y: 0, scale: 1, rotate: 0 }}
             exit={{ y: 56, opacity: 0 }}
             transition={{ type: "spring", stiffness: 240, damping: 24 }}
-            className="relative max-h-[92svh] w-full max-w-[26rem] overflow-hidden overflow-y-auto rounded-[1.75rem] bg-white shadow-[0_48px_120px_-24px_rgba(4,18,31,0.85)]"
+            className="no-scrollbar relative max-h-[92svh] w-full max-w-[26rem] overflow-hidden overflow-y-auto rounded-[1.75rem] bg-white shadow-[0_48px_120px_-24px_rgba(4,18,31,0.85)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Travis, cut on the wand angle */}
@@ -92,7 +92,7 @@ export default function TravisPopup() {
                 <span className="text-[0.6rem] font-bold text-foam">5.0 on Google</span>
               </div>
 
-              <div className="absolute bottom-8 left-5 flex items-center gap-2.5">
+              <div className="absolute bottom-[4.5rem] left-5 flex items-center gap-2.5">
                 <Image src="/images/logo-white.png" alt="" width={44} height={44} className="h-10 w-10 drop-shadow-lg" />
                 <div>
                   <p className="display text-xl leading-none text-foam drop-shadow-md">Travis Moss</p>
@@ -101,22 +101,16 @@ export default function TravisPopup() {
               </div>
             </div>
 
-            {/* the jet riding the cut */}
+            {/* the jet riding the cut — clipped to the exact edge geometry */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute left-[-4%] top-0 h-56 w-[108%] sm:h-60"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
-            >
-              <span
-                className="absolute left-[-2%] right-[-2%] h-[3px] origin-left"
-                style={{
-                  top: "88%",
-                  transform: "rotate(-4.6deg)",
-                  background: "linear-gradient(90deg, rgba(2,171,223,0.2), rgba(127,214,242,0.95), rgba(2,171,223,0.2))",
-                  boxShadow: "0 0 18px 4px rgba(2,171,223,0.5)",
-                }}
-              />
-            </div>
+              className="pointer-events-none absolute left-0 top-0 h-56 w-full sm:h-60"
+              style={{
+                clipPath: "polygon(0 97.4%, 100% 75.4%, 100% 78.2%, 0 100%)",
+                background: "linear-gradient(90deg, rgba(2,171,223,0.25), rgba(127,214,242,0.95), rgba(2,171,223,0.25))",
+                filter: "drop-shadow(0 0 10px rgba(2,171,223,0.6))",
+              }}
+            />
 
             <div className="relative px-6 pb-6 pt-4">
               {/* ghosted splash behind the copy */}
@@ -129,11 +123,12 @@ export default function TravisPopup() {
                 className="pointer-events-none absolute -right-8 bottom-2 w-40 rotate-6 opacity-[0.06]"
               />
               <p className="display text-[1.65rem] leading-[1.05] text-ink">
-                Want me to take a look <span className="text-hydro">myself?</span>
+                Let&apos;s get you a <span className="whitespace-nowrap text-hydro">straight price.</span>
               </p>
               <p className="mt-2.5 text-sm leading-relaxed text-slate">
-                I quote every job personally. Send your address — I&apos;ll text back a
-                straight price, usually the same day.
+                Send your address and what needs washing — Travis or one of the team
+                will text your quote back, usually the{" "}
+                <span className="whitespace-nowrap">same day.</span>
               </p>
 
               <div className="mt-5 flex flex-col gap-2.5">

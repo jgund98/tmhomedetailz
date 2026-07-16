@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import PowerWash from "@/components/PowerWash";
 import JetButton from "@/components/JetButton";
 import SplashMark from "@/components/SplashMark";
-import { SITE, CITIES } from "@/lib/site";
+import { SITE, CITIES, HERO_MEDIA } from "@/lib/site";
 
 /* Hero: the screen is split by a pressure jet on the wand angle from the TM
    logo. Left, the pitch; right, live footage of a Florida pool deck getting
@@ -27,7 +27,7 @@ export default function Hero() {
     <section ref={ref} className="relative flex min-h-[100svh] flex-col overflow-hidden bg-abyss">
       {/* ---------- mobile backdrop: the pool-deck footage under water glass ---------- */}
       <div className="absolute inset-0 md:hidden" aria-hidden="true">
-        <Image src="/images/hero-wash-poster.jpg" alt="" fill priority className="object-cover object-[62%_center]" sizes="100vw" />
+        <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover object-[62%_center]" sizes="100vw" />
         {desktop === false && (
           <video
             autoPlay
@@ -35,10 +35,10 @@ export default function Hero() {
             loop
             playsInline
             preload="metadata"
-            poster="/images/hero-wash-poster.jpg"
+            poster={HERO_MEDIA.poster}
             className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
           >
-            <source src="/videos/hero-wash.mp4" type="video/mp4" />
+            <source src={HERO_MEDIA.video} type="video/mp4" />
           </video>
         )}
         <div className="absolute inset-0 bg-abyss/55" />
@@ -49,7 +49,7 @@ export default function Hero() {
       <div className="absolute inset-y-0 right-0 hidden w-[57%] md:block" aria-hidden="true">
         <div className="absolute inset-y-0 -right-40 left-0 origin-top-left skew-x-[7deg] overflow-hidden">
           <div className="absolute -inset-x-24 inset-y-0 origin-top-left -skew-x-[7deg]">
-            <Image src="/images/hero-wash-poster.jpg" alt="" fill priority className="object-cover object-[45%_55%]" sizes="60vw" />
+            <Image src={HERO_MEDIA.poster} alt="" fill priority className="object-cover object-[45%_55%]" sizes="60vw" />
             {desktop === true && (
               <video
                 autoPlay
@@ -57,10 +57,10 @@ export default function Hero() {
                 loop
                 playsInline
                 preload="metadata"
-                poster="/images/hero-wash-poster.jpg"
+                poster={HERO_MEDIA.poster}
                 className="absolute inset-0 h-full w-full object-cover object-[45%_55%]"
               >
-                <source src="/videos/hero-wash.mp4" type="video/mp4" />
+                <source src={HERO_MEDIA.video} type="video/mp4" />
               </video>
             )}
           </div>

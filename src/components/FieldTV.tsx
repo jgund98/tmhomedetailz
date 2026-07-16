@@ -144,6 +144,7 @@ export default function FieldTV() {
                       src={clip.src}
                       poster={clip.poster}
                       autoPlay
+                      loop
                       muted={muted}
                       playsInline
                       preload="auto"
@@ -153,7 +154,6 @@ export default function FieldTV() {
                           progressRef.current.style.width = `${(v.currentTime / v.duration) * 100}%`;
                         }
                       }}
-                      onEnded={() => go(active + 1)}
                       onClick={() => setMuted((m) => !m)}
                       className="h-full w-full cursor-pointer object-cover"
                     />

@@ -97,9 +97,24 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-hydro/10 pt-6 text-[0.6875rem] text-mist-dim md:flex-row">
+          <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-hydro/10 pt-6 text-[0.6875rem] text-mist-dim md:flex-row">
             <p>© {new Date().getFullYear()} TM Home Detailz. Family owned &amp; operated in Central Florida.</p>
-            <p className="label text-[0.5625rem]">Commercial · Residential · Fleet · Heavy Equipment</p>
+            <a
+              href="https://www.epicdevsolutions.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 opacity-55 transition-opacity hover:opacity-100"
+              aria-label="Website by Epic Dev Solutions"
+            >
+              <span className="text-[0.5625rem] uppercase tracking-[0.18em]">Site by</span>
+              <Image
+                src="/images/epic-logo.png"
+                alt="Epic Dev Solutions"
+                width={663}
+                height={160}
+                className="h-4 w-auto opacity-90 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+              />
+            </a>
           </div>
         </div>
       </div>

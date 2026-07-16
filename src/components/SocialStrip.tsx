@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import SplashMark from "@/components/SplashMark";
-import { FIELD_CLIPS, SITE } from "@/lib/site";
+import { SOCIAL_CARDS, SITE } from "@/lib/site";
 
 /* An endless film strip of Travis's real clips — every card is a doorway to
    the socials. Pressure washing is the most-watchable trade on the internet. */
@@ -24,8 +24,9 @@ function InstagramIcon({ className = "" }: { className?: string }) {
 }
 
 // alternate TikTok / Instagram destinations across the cards
-const CARDS = FIELD_CLIPS.map((c, i) => ({
+const CARDS = SOCIAL_CARDS.map((c, i) => ({
   ...c,
+  id: `${c.tag}-${i}`,
   href: i % 2 === 0 ? SITE.tiktok : SITE.instagram,
   platform: (i % 2 === 0 ? "tiktok" : "instagram") as "tiktok" | "instagram",
 }));
@@ -93,8 +94,8 @@ export default function SocialStrip() {
         <div className="marquee-hover relative overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-abyss to-transparent md:w-32" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-abyss to-transparent md:w-32" />
-          <div className="marquee-track flex w-max gap-4 pr-4 [animation-duration:48s] md:gap-5 md:pr-5">
-            {[...CARDS, ...CARDS, ...CARDS].map((c, i) => (
+          <div className="marquee-track flex w-max gap-4 pr-4 [animation-duration:64s] md:gap-5 md:pr-5">
+            {[...CARDS, ...CARDS].map((c, i) => (
               <Card key={`${c.id}-${i}`} c={c} />
             ))}
           </div>

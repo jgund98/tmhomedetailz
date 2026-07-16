@@ -193,6 +193,16 @@ export const CITIES = [
   "Winter Garden", "Apopka", "Ocoee", "Orlando",
 ];
 
+/* Hero background footage — swap in one place.
+   Options: /videos/hero-wash.mp4 (low-angle jet + mist wall)
+            /videos/hero-alt-1.mp4 (close wand jet on concrete, 4K source)
+            /videos/hero-alt-2.mp4 (bench + rolling mist)
+   Each has a matching poster: same name with -poster.jpg under /images. */
+export const HERO_MEDIA = {
+  video: "/videos/hero-wash.mp4",
+  poster: "/images/hero-wash-poster.jpg",
+};
+
 export const STATS = [
   { value: 4000, suffix: " PSI", label: "of commercial-grade pressure" },
   { value: 250, suffix: "°F", label: "hot water for grease & sanitation" },
@@ -230,4 +240,20 @@ export const FIELD_CLIPS = [
     label: "The rig rolls out",
     tag: "On the road",
   },
+];
+
+/* Poster cards for the bottom social marquee — more variety than the 4 clips,
+   pulled from different moments so the scroll never looks repetitive. Each is
+   a still that links straight out to the socials. */
+export const SOCIAL_CARDS = [
+  { poster: "/images/field-driveway.jpg", label: "House exterior soft wash", tag: "Residential" },
+  { poster: "/images/social-engine-8.jpg", label: "Peterbilt, degreased", tag: "Heavy equipment" },
+  { poster: "/images/field-trailer.jpg", label: "Box trailer — inside & out", tag: "Fleet" },
+  { poster: "/images/social-rig-3.jpg", label: "Rig set up on site", tag: "On the road" },
+  { poster: "/images/social-driveway-14.jpg", label: "Siding brought back to white", tag: "Residential" },
+  { poster: "/images/social-engine-22.jpg", label: "Engine bay detail", tag: "Heavy equipment" },
+  { poster: "/images/social-trailer-6.jpg", label: "Trailer wash-down", tag: "Fleet" },
+  { poster: "/images/field-rig.jpg", label: "Loaded and rolling", tag: "On the road" },
+  { poster: "/images/social-driveway-5.jpg", label: "Soft wash in progress", tag: "Residential" },
+  { poster: "/images/social-trailer-20.jpg", label: "Fleet, spotless finish", tag: "Fleet" },
 ];
