@@ -45,6 +45,16 @@ export default function FieldTV() {
     setActive(((i % n) + n) % n);
   }, [n]);
 
+  // swipe to change clips (touch)
+  const touchX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => (touchX.current = e.touches[0].clientX);
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 40) go(active + (dx < 0 ? 1 : -1));
+    touchX.current = null;
+  };
+
   // mount lazily, pause offscreen, resume onscreen
   useEffect(() => {
     const el = sectionRef.current;
@@ -105,21 +115,25 @@ export default function FieldTV() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="flex items-center justify-center gap-5 md:gap-10">
-            {/* previous — leaning in from the wings */}
+          <div
+            className="flex items-center justify-center"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
+            {/* previous — peeks in from the left on every screen; tucked under the center on mobile */}
             <button
               onClick={() => go(active - 1)}
               aria-label={`Play: ${prev.label}`}
-              className="group relative hidden w-44 shrink-0 -rotate-3 overflow-hidden rounded-3xl border border-foam/15 opacity-60 transition-all duration-500 hover:-translate-y-2 hover:opacity-90 md:block lg:w-56"
+              className="group relative z-0 -mr-8 w-24 shrink-0 -rotate-6 overflow-hidden rounded-2xl border border-foam/15 opacity-50 transition-all duration-500 hover:-translate-y-2 hover:opacity-90 sm:-mr-6 sm:w-36 sm:rounded-3xl md:mr-0 md:-rotate-3 md:opacity-60 md:[margin-right:2.5rem] lg:w-56 lg:[margin-right:2.5rem]"
               style={{ aspectRatio: "9/16" }}
             >
               <Image src={prev.poster} alt="" fill className="object-cover" sizes="224px" />
-              <div className="absolute inset-0 bg-abyss/40 transition-colors group-hover:bg-abyss/15" />
-              <span className="label absolute bottom-3 left-3 right-3 text-left text-[0.55rem] text-foam/90">{prev.label}</span>
+              <div className="absolute inset-0 bg-abyss/45 transition-colors group-hover:bg-abyss/15" />
+              <span className="label absolute bottom-2 left-2 right-2 hidden text-left text-[0.55rem] text-foam/90 sm:block">{prev.label}</span>
             </button>
 
             {/* the main screen */}
-            <div className="relative w-full max-w-[300px] shrink-0 md:max-w-[340px]">
+            <div className="relative z-10 w-full max-w-[240px] shrink-0 sm:max-w-[300px] md:max-w-[340px]">
               <div
                 className="relative overflow-hidden rounded-[2rem] border-2 border-foam/20 bg-trench shadow-[0_40px_90px_-30px_rgba(2,171,223,0.35)]"
                 style={{ aspectRatio: "9/16" }}
@@ -200,67 +214,44 @@ export default function FieldTV() {
                 </div>
               </div>
 
-              {/* mobile prev/next */}
-              <div className="mt-5 flex items-center justify-between md:hidden">
-                <button
-                  onClick={() => go(active - 1)}
-                  aria-label="Previous clip"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-foam/25 text-foam active:bg-hydro active:text-abyss"
-                >
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <div className="flex gap-2">
-                  {FIELD_CLIPS.map((c, i) => (
-                    <button
-                      key={c.id}
-                      onClick={() => go(i)}
-                      aria-label={`Play clip ${i + 1}`}
-                      className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-7 bg-hydro" : "w-2 bg-foam/30"}`}
-                    />
-                  ))}
-                </div>
-                <button
-                  onClick={() => go(active + 1)}
-                  aria-label="Next clip"
-                  className="grid h-11 w-11 place-items-center rounded-full border border-foam/25 text-foam active:bg-hydro active:text-abyss"
-                >
-                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
             </div>
 
-            {/* next */}
+            {/* next — peeks in from the right */}
             <button
               onClick={() => go(active + 1)}
               aria-label={`Play: ${next.label}`}
-              className="group relative hidden w-44 shrink-0 rotate-3 overflow-hidden rounded-3xl border border-foam/15 opacity-60 transition-all duration-500 hover:-translate-y-2 hover:opacity-90 md:block lg:w-56"
+              className="group relative z-0 -ml-8 w-24 shrink-0 rotate-6 overflow-hidden rounded-2xl border border-foam/15 opacity-50 transition-all duration-500 hover:-translate-y-2 hover:opacity-90 sm:-ml-6 sm:w-36 sm:rounded-3xl md:ml-0 md:rotate-3 md:opacity-60 md:[margin-left:2.5rem] lg:w-56 lg:[margin-left:2.5rem]"
               style={{ aspectRatio: "9/16" }}
             >
               <Image src={next.poster} alt="" fill className="object-cover" sizes="224px" />
-              <div className="absolute inset-0 bg-abyss/40 transition-colors group-hover:bg-abyss/15" />
-              <span className="label absolute bottom-3 left-3 right-3 text-left text-[0.55rem] text-foam/90">{next.label}</span>
+              <div className="absolute inset-0 bg-abyss/45 transition-colors group-hover:bg-abyss/15" />
+              <span className="label absolute bottom-2 left-2 right-2 hidden text-left text-[0.55rem] text-foam/90 sm:block">{next.label}</span>
             </button>
           </div>
         </Reveal>
 
-        {/* desktop dots */}
-        <div className="mt-8 hidden justify-center gap-2.5 md:flex">
-          {FIELD_CLIPS.map((c, i) => (
-            <button
-              key={c.id}
-              onClick={() => go(i)}
-              aria-label={`Play: ${c.label}`}
-              className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-8 bg-hydro" : "w-2 bg-foam/25 hover:bg-foam/50"}`}
-            />
-          ))}
+        {/* dots + swipe hint (all screens) */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <div className="flex justify-center gap-2.5">
+            {FIELD_CLIPS.map((c, i) => (
+              <button
+                key={c.id}
+                onClick={() => go(i)}
+                aria-label={`Play: ${c.label}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === active ? "w-8 bg-hydro" : "w-2 bg-foam/25 hover:bg-foam/50"}`}
+              />
+            ))}
+          </div>
+          <p className="flex items-center gap-2 text-[0.62rem] font-bold uppercase tracking-[0.18em] text-mist-dim md:hidden">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 6 3 12l6 6M15 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Swipe to switch clips
+          </p>
         </div>
 
         <Reveal delay={0.1}>
-          <p className="mt-8 text-center text-xs uppercase tracking-[0.2em] text-mist-dim">
+          <p className="mt-6 text-center text-xs uppercase tracking-[0.2em] text-mist-dim">
             Real jobs, real footage — new transformations drop weekly
           </p>
         </Reveal>
